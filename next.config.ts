@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
+    unoptimized: false,
     remotePatterns: [
       {
         protocol: 'https',
@@ -13,7 +14,11 @@ const nextConfig: NextConfig = {
         hostname: 'unsplash.com', // for cases like yours with download URLs
       },
     ],
+
   },
+  compress: true,
+  poweredByHeader: false,
+  reactStrictMode: true
 };
 
 export default nextConfig;
