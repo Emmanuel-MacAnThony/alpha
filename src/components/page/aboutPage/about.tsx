@@ -32,39 +32,48 @@ const CompanyHistory = () => {
         <div className="space-y-6 max-w-4xl mx-auto">
           <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-[18px] leading-relaxed">
             Alpha City was founded by Bradford Cross, an entrepreneur and
-            investor who spent over 20 years building startups in the AI space.
-            He was the Co-Founder of Prismatic, a machine learning and data
-            platform company, and Pelago, a social commerce platform. He is also
-            a long-time investor and has been building and investing in
-            artificial intelligence companies for over 20 years. He was also the
-            Co-Founder of Pelago, a location-based social networking platform,
-            and Co-Founder of UberMedia, a Twitter analytics company.
+            investor who spent over 20 years building and backing AI startups
+            and leading deep tech and finance innovation. As a multi-time exited
+            founder, Partner at Pronomos Capital, and Founding Partner of Data
+            Collective ($3B Deep Tech VC Fund), Bradford specialized in solving
+            complex problems in heavily regulated industries. By 2020, it was
+            clear that traditional governance models were failing, and that
+            technology alone wasn’t enough to fix it. The West was in decline,
+            crushed under bloated bureaucracies, crumbling infrastructure, and
+            governance models designed for the past. Meanwhile, the Developing
+            World wasn’t developing fast enough, held back by poor economic
+            policies and failed top-down planning models. The global system was
+            broken—not because of a lack of capital or talent, but because of
+            how organizations were being run. From nations, to cities, to
+            corporations, the same cumbersome and ineffective governance
+            principles were holding everything back.
           </p>
 
           <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-[18px] leading-relaxed">
-            His excitement about AI's governance, evolving and blending into
-            smart city innovation, finance, and technology to create a better
-            model for cities, economic development, and ultimately organizing
-            human civilization. Instead of trying to reform legacy systems, he
-            set out to build entirely new ones from scratch – Alpha was born.
+            This realization drove Bradford to pivot from AI to governance,
+            applying his background in regulatory innovation, finance, and
+            technology to create a better model for cities, economic
+            development, and ultimately organizing human civilization. Instead
+            of trying to reform legacy systems, he set out to build entirely new
+            ones from scratch—Alpha was born.
           </p>
 
           <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-[18px] leading-relaxed">
-            Alpha comes with legacy governments cannot. It designs into motion,
-            self-sufficient municipalities with high-performance governance,
-            industry-driven economic development, and thorough digital
-            infrastructure. It focuses on creating environments that are not
-            just places to live but ecosystems—from homes to hospitals—where
-            capital, industry, and human talent converge in an environment
-            designed for success. Since securing strategic land concessions and
-            launching master planning of cities, Alpha has become a reference
-            point for governments and investors worldwide.
+            Alpha solves what legacy governments cannot: It designs
+            ultra-modern, self-sufficient metropolises with high-performance
+            governance, industry-driven economic development, and
+            investor-friendly policies. Inspired by Singapore, Dubai, and
+            Shenzhen, Alpha creates full-stack economic ecosystems—from farmer
+            to founder—where capital, industry, and human talent converge in an
+            environment designed for success. Since securing strategic land
+            concessions and launching master plans across multiple regions,
+            Alpha has rapidly evolved from vision to reality.
           </p>
 
           <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-[18px] leading-relaxed">
-            Traditional cities are facing ambitious burdens. Once-thriving
-            talent hubs have become hostile to new young people driving human
-            progress—choking growth with crushing regulations, degrading
+            Traditional cities are failing ambitious builders. Once-thriving
+            talent hubs have become hostile to the very people driving human
+            progress—choking growth with crushing regulation, stagnating
             economies, and broken infrastructure. Instead of serving their
             residents, legacy cities serve their bureaucracies, leaving
             entrepreneurs, investors, and skilled workers trapped in failing
@@ -72,41 +81,44 @@ const CompanyHistory = () => {
           </p>
 
           <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-[18px] leading-relaxed">
-            Bradford's entry into startup cities was accelerated by Pronomos
+            Bradford’s entry into startup cities was accelerated by Pronomos
             Capital, where he partnered with Patri Friedman, grandson of Milton
-            Friedman, the legendary free-market economist. Pronomos had been
-            incubating the charter city movement for several years and was
-            looking for entrepreneurs at seeking to revolutionize governance
+            Friedman, the legendary free-market economist. Pronomos had already
+            secured backing from Peter Thiel, Marc Andreessen, and other top
+            Silicon Valley investors, all seeking to revolutionize governance
             through startup cities. Through the Pronomos network, Bradford and
-            Alpha gained direct access to heads of state across Africa and to
-            other emerging market governments interested in experimenting with
-            new models of governance and economic development.
+            Alpha gained direct access to heads of state across Africa and in
+            other emerging markets, forming strategic partnerships with
+            governments seeking economic transformation through
+            private-sector-driven development.
           </p>
 
           <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-[18px] leading-relaxed">
             Unlike most development projects that take years or even decades to
             gain traction, Alpha moved at the speed of a tech startup. Within 12
             months of incorporation, Alpha secured agreements with three
-            national governments, signing both host nation agreements and
-            obtaining the necessary permits and licenses to start construction.
-            The team includes direct Land Concessions, Joint Venture Agreements,
-            and Special Development Zone legal frameworks.
+            national governments, signing deals that outline all the components
+            to build new privately managed cities as Public Private
+            Partnerships; direct Land Concessions, Joint Venture Agreements, and
+            Special Development Zone legal frameworks.
           </p>
 
           <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-[18px] leading-relaxed">
             Today, Alpha is securing land in increments larger than 1,000
-            hectares, developing beautiful and hospitable and infrastructure,
-            cutting business districts, agricultural belts, and industrial
-            villages to build sustainable, profitable new cities. The company is
-            also creating a new model for urban development that addresses the
-            global housing crisis, climate change, and economic inequality.
+            hectares, developing beachfront hospitality and entertainment,
+            central business districts, agricultural hubs, and industrial
+            villages to create full-stack economic ecosystems—where everything
+            thrives from farming to finance, big industry to startup innovation.
+            What began as an idea is now a global movement, shaping the future
+            of civilization one city at a time. The world needs a new model for
+            governance and economic development — Alpha is building it.
           </p>
 
-          <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-[18px] leading-relaxed">
+          {/* <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-[18px] leading-relaxed">
             What began as an idea to start a global movement, shaping the future
             of civilization into city at a time. The world needs a new model for
             governance and economic development — Alpha is building that model.
-          </p>
+          </p> */}
         </div>
       </div>
     </div>
@@ -152,7 +164,7 @@ const About = () => {
       title: "",
       image: fallbackImg,
       description: [
-        "With more than 15 years of experience Jacklina has built her career through various public and private sector organizations, focusing on banking and finance, financial inclusion, economic and community development, research and analysis, project coordination, monitoring and evaluation, monetary policy, business & strategy advisory, and stakeholder engagement. During her career she has led and advised investment companies within diverse sectors, including financial services, natural resources, energy, and infrastructure in several African countries. Jacklina has held several significant positions, including Coordinator of Corporate Social Responsibility Projects at Noble EnergyChevron, World Bank Consultant, Executive Director and Board Member of the Central Bank of São Tomé and Príncipe where she played a major role leading the country's third monetary reform, She is fluent in Portuguese, French, and Spanish.",
+        "With more than 15 years of experience Jackilina has built her career through various public and private sector organizations, focusing on banking and finance, financial inclusion, economic and community development, research and analysis, project coordination, monitoring and evaluation, monetary policy, business & strategy advisory, and stakeholder engagement. During her career she has led and advised investment companies within diverse sectors, including financial services, natural resources, energy, and infrastructure in several African countries. Jackilina has held several significant positions, including Coordinator of Corporate Social Responsibility Projects at Noble Energy/Chevron, World Bank Consultant, Executive Director and Board Member of the Central Bank of São Tomé and Príncipe where she played a major role leading   the county’s third monetary reform. She is fluent in Portuguese, French, and Spanish.",
         // "https://www.linkedin.com/in/jacklina-trindade-soares",
         // "Pedro Malfagra advisor)",
       ],
@@ -163,7 +175,7 @@ const About = () => {
       title: "Yomi Ademola",
       image: fallbackImg,
       description: [
-        "Chairman, West Africa, Country Head, Nigeria. \"Rendeavour is creating new urban paradigms across Africa.\" As Rendeavour's Chairman, West Africa, Yomi brings more than 25 years of real estate expertise, 15 years of investment banking experience, and African city development to Rendeavour's team. Yomi has practiced law or conducted business on three continents, including numerous cities in Africa, possessing a unique experience and skillset well suited for bridging cultural divides in a complex business landscape. He has originated and negotiated several significant projects for Lagos State Government, including the Lekki Free Trade Zone project in Lagos. Yomi has been Rendeavour's Country Head, Nigeria since the inception of the Group and is currently also the Managing Director of Rendeavour's Alaro City in Lagos, Nigeria. Yomi has served on numerous private company boards in Africa, and is a member of the Board of Trustees of the Nigerian Economic Zones Association. Prior to Rendeavour, he was an attorney in New York and London with Weil, Gotshal & Manges and Lathan & Watkins. He also worked at Renaissance Group in Lagos and London. Yomi is a proud alumnus of Georgetown University Law Center in Washington, D.C.",
+        "Chairman, West Africa; Country Head, Nigeria. \"Rendeavour is creating new urban paradigms across Africa.\" As Rendeavour’s Chairman, West Africa, Yomi brings more than 20 years’ experience spanning corporate law, project finance, investment banking, and African city development to Rendeavour’s team. Yomi has practiced law or conducted business on three continents, including numerous cities in Africa, possessing a unique experience and skillset well suited for bridging cultural divides in a complex business landscape. He has originated and negotiated several significant projects for Rendeavour and manages a diverse set of stakeholder relationships across the region. Yomi has been Rendeavour’s Country Head, Nigeria since the inception of the Group and is currently also the Managing Director of Rendeavour’s Alaro City in Lagos, Nigeria. Yomi has served on numerous private company boards in Africa, and is a member of the Board of Trustees of the Nigerian Economic Zones Association. Prior to Rendeavour, he was an attorney in New York and London with Weil, Gotshal & Manges and Latham & Watkins. He also worked at Renaissance Group in Lagos and London. Yomi is a proud alumnus of the Georgetown University Law Center in Washington, D.C.",
       ],
     },
   ];
@@ -227,8 +239,6 @@ const About = () => {
       ],
     },
   ];
-
-  
 
   return (
     <div>
