@@ -23,7 +23,6 @@ const Hero = ({ currentSlide = 0, onSlideChange }: any) => {
   const [imageStates, setImageStates] = useState<{[key: number]: 'loading' | 'loaded' | 'error'}>({});
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [previousSlide, setPreviousSlide] = useState<number | null>(null);
-  const [currentImageLoaded, setCurrentImageLoaded] = useState(false);
   const preloadRefs = useRef<{[key: number]: HTMLImageElement}>({});
   const preloadedSet = useRef<Set<number>>(new Set());
   const transitionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -105,7 +104,6 @@ const Hero = ({ currentSlide = 0, onSlideChange }: any) => {
   useEffect(() => {
     if (previousSlide !== null && previousSlide !== currentSlide) {
       setIsTransitioning(true);
-      setCurrentImageLoaded(false); // Reset loading state for new image
       
       // Clear any existing timeout
       if (transitionTimeoutRef.current) {
@@ -137,22 +135,10 @@ const Hero = ({ currentSlide = 0, onSlideChange }: any) => {
 
   return (
     <div className="relative -mt-25 pt-25 w-full min-h-screen max-h-4xl flex items-center justify-center z-10">
-      <div className="absolute inset-0 overflow-hidden" style={{ backgroundColor: '#2c3e50' }}>
-        {/* Loading skeleton */}
-        {!currentImageLoaded && (
-          <div className="absolute inset-0 z-10 bg-gradient-to-br from-slate-400 via-slate-500 to-slate-600 animate-pulse">
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/20"></div>
-            <div className="absolute bottom-1/3 left-1/2 transform -translate-x-1/2">
-              <div className="w-16 h-16 border-4 border-white/30 border-t-white rounded-full animate-spin"></div>
-            </div>
-          </div>
-        )}
-
+      <div className="absolute inset-0 overflow-hidden">
         {/* Current image layer */}
         <div 
-          className={`absolute inset-0 z-20 transition-opacity duration-500 ${
-            currentImageLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
+          className="absolute inset-0 z-20"
           style={{
             transform: 'translateZ(0)',
             backfaceVisibility: 'hidden',
@@ -164,18 +150,10 @@ const Hero = ({ currentSlide = 0, onSlideChange }: any) => {
             fill
             className="object-cover"
             priority={true}
-            quality={100}
+            quality={90}
             sizes="100vw"
-            placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAVGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
             loading="eager"
-            unoptimized={false}
-            onLoad={() => setCurrentImageLoaded(true)}
-            onError={() => setCurrentImageLoaded(false)}
-            style={{
-              imageRendering: 'crisp-edges',
-              filter: 'contrast(1.02) saturate(1.05) brightness(1.01)',
-            }}
+            unoptimized={true}
           />
         </div>
         

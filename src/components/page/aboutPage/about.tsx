@@ -136,30 +136,19 @@ const CompanyHistory = () => {
 
 // Main Hero Component
 const Hero = () => {
-  const [imageLoaded, setImageLoaded] = React.useState(false);
-
   return (
     <div className="relative -mt-25 pt-25 w-full min-h-screen max-h-4xl flex flex-col justify-end">
-      {/* Loading skeleton */}
-      {!imageLoaded && (
-        <div className="absolute inset-0 bg-gradient-to-br from-green-600 via-green-700 to-green-800 animate-pulse">
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20"></div>
-          <div className="absolute bottom-1/3 left-1/2 transform -translate-x-1/2">
-            <div className="w-16 h-16 border-4 border-white/30 border-t-white rounded-full animate-spin"></div>
-          </div>
-        </div>
-      )}
-
       {/* Fixed Background Image */}
-      <div className={`absolute inset-0 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      <div className="absolute inset-0">
         <Image 
           src={swampHero} 
           alt="" 
           fill 
           className="object-cover" 
           priority 
-          onLoad={() => setImageLoaded(true)}
-          onError={() => setImageLoaded(false)}
+          quality={90}
+          loading="eager"
+          unoptimized={true}
         />
       </div>
 
