@@ -8,16 +8,24 @@ import { useEffect, useState, useRef, useCallback } from "react";
 
 const Hero = ({ currentSlide = 0, onSlideChange }: any) => {
   const heroImages = [
-    // "/aboutHero.png",
-    "/hero_1.avif",
-    "/legacy_2.avif", 
-    "/hero_3.avif",
+    "/aboutHero.png",
+    "/aboutHero.png",
+    "/aboutHero.png",
+    // "/hero_1.avif",
+    // "/legacy_2.avif", 
+    // "/hero_3.avif",
+    // "/IMG_2940.png",
+    // "/Baia_19.png",
+    // "/Baia_17.png"
   ];
 
-  // Track loading states - initialize with empty object
+  // Track loading states and transition states
   const [imageStates, setImageStates] = useState<{[key: number]: 'loading' | 'loaded' | 'error'}>({});
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [previousSlide, setPreviousSlide] = useState<number | null>(null);
   const preloadRefs = useRef<{[key: number]: HTMLImageElement}>({});
   const preloadedSet = useRef<Set<number>>(new Set());
+  const transitionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Memoize preload function to prevent recreation
   const preloadImage = useCallback((index: number): Promise<void> => {
@@ -90,7 +98,33 @@ const Hero = ({ currentSlide = 0, onSlideChange }: any) => {
     }, 1000);
 
     return () => clearTimeout(timeoutId);
-  }, [currentSlide, preloadImage]); // Only depend on currentSlide and memoized function
+  }, [currentSlide, preloadImage]);
+
+  // Handle transition state when slide changes
+  useEffect(() => {
+    if (previousSlide !== null && previousSlide !== currentSlide) {
+      setIsTransitioning(true);
+      
+      // Clear any existing timeout
+      if (transitionTimeoutRef.current) {
+        clearTimeout(transitionTimeoutRef.current);
+      }
+      
+      // End transition after animation completes
+      transitionTimeoutRef.current = setTimeout(() => {
+        setIsTransitioning(false);
+        setPreviousSlide(currentSlide);
+      }, 800); // Slightly longer than CSS transition duration
+    } else if (previousSlide === null) {
+      setPreviousSlide(currentSlide);
+    }
+    
+    return () => {
+      if (transitionTimeoutRef.current) {
+        clearTimeout(transitionTimeoutRef.current);
+      }
+    };
+  }, [currentSlide, previousSlide]);
 
   // Get loading priority for Next.js Image component
   const getImagePriority = useCallback((index: number) => {
@@ -101,50 +135,94 @@ const Hero = ({ currentSlide = 0, onSlideChange }: any) => {
 
   return (
     <div className="relative -mt-25 pt-25 w-full min-h-screen max-h-4xl flex items-center justify-center z-10">
-      <div className="absolute inset-0 bg-gray-900">
-        {/* Base layer - always show the current image at full opacity */}
-        <div className="absolute inset-0">
+      <div className="absolute inset-0 bg-gray-900 overflow-hidden">
+        {/* Current image layer */}
+        <div 
+          className="absolute inset-0 z-20"
+          style={{
+            transform: 'translateZ(0)',
+            backfaceVisibility: 'hidden',
+          }}
+        >
           <Image
             src={heroImages[currentSlide]}
             alt={`Hero image ${currentSlide + 1}`}
             fill
             className="object-cover"
             priority={true}
-            quality={85}
+            quality={100}
             sizes="100vw"
             placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAVGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
             loading="eager"
+            unoptimized={false}
+            style={{
+              imageRendering: 'crisp-edges',
+              filter: 'contrast(1.02) saturate(1.05) brightness(1.01)',
+            }}
           />
         </div>
         
-        {/* Crossfade layers - for smooth transitions between images */}
+        {/* Previous image layer - for smooth crossfade during transitions */}
+        {isTransitioning && previousSlide !== null && previousSlide !== currentSlide && (
+          <div 
+            className="absolute inset-0 z-10 transition-opacity duration-700 ease-out"
+            style={{
+              opacity: 0,
+              transform: 'translateZ(0)',
+              backfaceVisibility: 'hidden',
+            }}
+          >
+            <Image
+              src={heroImages[previousSlide]}
+              alt={`Previous hero image ${previousSlide + 1}`}
+              fill
+              className="object-cover"
+              priority={false}
+              quality={100}
+              sizes="100vw"
+              placeholder="blur"
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAVGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+              loading="lazy"
+              unoptimized={false}
+              style={{
+                imageRendering: 'crisp-edges',
+                filter: 'contrast(1.02) saturate(1.05) brightness(1.01)',
+              }}
+            />
+          </div>
+        )}
+        
+        {/* Preload hidden images for smooth transitions */}
         {heroImages.map((imageSrc, index) => {
-          if (index === currentSlide) return null; // Skip current slide (handled above)
-          
-          const isLoaded = imageStates[index] === 'loaded';
           const isPriority = getImagePriority(index);
+          const shouldPreload = isPriority && index !== currentSlide && (!isTransitioning || index !== previousSlide);
+          
+          if (!shouldPreload) return null;
           
           return (
             <div
-              key={`crossfade-${index}`}
-              className="absolute inset-0 transition-opacity duration-[600ms] ease-in-out opacity-0"
-              style={{
+              key={`preload-${index}`}
+              className="absolute inset-0 opacity-0 pointer-events-none z-0"
+              style={{ 
                 transform: 'translateZ(0)',
                 backfaceVisibility: 'hidden',
               }}
             >
               <Image
                 src={imageSrc}
-                alt={`Hero image ${index + 1}`}
+                alt={`Preload hero image ${index + 1}`}
                 fill
                 className="object-cover"
-                priority={isPriority}
-                quality={85}
+                priority={false}
+                quality={100}
                 sizes="100vw"
-                placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAVGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-                loading={isPriority ? "eager" : "lazy"}
+                loading="lazy"
+                unoptimized={false}
+                style={{
+                  imageRendering: 'crisp-edges',
+                  filter: 'contrast(1.02) saturate(1.05) brightness(1.01)',
+                }}
                 onLoad={() => {
                   if (!preloadedSet.current.has(index)) {
                     preloadedSet.current.add(index);
@@ -161,10 +239,10 @@ const Hero = ({ currentSlide = 0, onSlideChange }: any) => {
       </div>
       
       {/* Opacity Overlay */}
-      <div className="absolute inset-0 bg-black/20"></div>
+      <div className="absolute inset-0 bg-black/20 z-25"></div>
       {/* Gradient Overlays for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-black/20"></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-black/20 z-25"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-25"></div>
       
       {/* Main Content Container */}
       <div className="relative z-30 w-full">
@@ -175,6 +253,7 @@ const Hero = ({ currentSlide = 0, onSlideChange }: any) => {
     </div>
   );
 };
+
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 

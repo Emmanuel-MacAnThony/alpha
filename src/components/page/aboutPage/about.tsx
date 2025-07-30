@@ -8,6 +8,7 @@ import bradford from "../../../../public/bradford.png";
 import fallbackImg from "../../../../public/fallbackImg.jpg";
 import blur from "../../../../public/blur.png";
 import Image from "next/image";
+import { ScrollAnimationWrapper } from "@/lib/useScrollAnimation";
 
 const CompanyHistory = () => {
   return (
@@ -24,51 +25,59 @@ const CompanyHistory = () => {
       </div>
 
       <div className="relative z-10  py-6 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
-        <h1 className="pt-6 sm:pt-8 md:pt-10 lg:pt-12 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[64px] font-bold text-[#141B34] mb-4 sm:mb-6 md:mb-8">
-          Company History
-        </h1>
+        <ScrollAnimationWrapper animation="fadeInDown">
+          <h1 className="pt-6 sm:pt-8 md:pt-10 lg:pt-12 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[64px] font-bold text-[#141B34] mb-4 sm:mb-6 md:mb-8">
+            Company History
+          </h1>
+        </ScrollAnimationWrapper>
 
         {/* Content */}
         <div className="space-y-6 max-w-4xl mx-auto">
-          <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-[18px] leading-relaxed">
-            Alpha City was founded by Bradford Cross, an entrepreneur and
-            investor who spent over 20 years building and backing AI startups
-            and leading deep tech and finance innovation. As a multi-time exited
-            founder, Partner at Pronomos Capital, and Founding Partner of Data
-            Collective ($3B Deep Tech VC Fund), Bradford specialized in solving
-            complex problems in heavily regulated industries. By 2020, it was
-            clear that traditional governance models were failing, and that
-            technology alone wasn’t enough to fix it. The West was in decline,
-            crushed under bloated bureaucracies, crumbling infrastructure, and
-            governance models designed for the past. Meanwhile, the Developing
-            World wasn’t developing fast enough, held back by poor economic
-            policies and failed top-down planning models. The global system was
-            broken—not because of a lack of capital or talent, but because of
-            how organizations were being run. From nations, to cities, to
-            corporations, the same cumbersome and ineffective governance
-            principles were holding everything back.
-          </p>
+          <ScrollAnimationWrapper animation="fadeInUp" delay={200}>
+            <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-[18px] leading-relaxed">
+              Alpha City was founded by Bradford Cross, an entrepreneur and
+              investor who spent over 20 years building and backing AI startups
+              and leading deep tech and finance innovation. As a multi-time exited
+              founder, Partner at Pronomos Capital, and Founding Partner of Data
+              Collective ($3B Deep Tech VC Fund), Bradford specialized in solving
+              complex problems in heavily regulated industries. By 2020, it was
+              clear that traditional governance models were failing, and that
+              technology alone wasn't enough to fix it. The West was in decline,
+              crushed under bloated bureaucracies, crumbling infrastructure, and
+              governance models designed for the past. Meanwhile, the Developing
+              World wasn't developing fast enough, held back by poor economic
+              policies and failed top-down planning models. The global system was
+              broken—not because of a lack of capital or talent, but because of
+              how organizations were being run. From nations, to cities, to
+              corporations, the same cumbersome and ineffective governance
+              principles were holding everything back.
+            </p>
+          </ScrollAnimationWrapper>
 
-          <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-[18px] leading-relaxed">
-            This realization drove Bradford to pivot from AI to governance,
-            applying his background in regulatory innovation, finance, and
-            technology to create a better model for cities, economic
-            development, and ultimately organizing human civilization. Instead
-            of trying to reform legacy systems, he set out to build entirely new
-            ones from scratch—Alpha was born.
-          </p>
+          <ScrollAnimationWrapper animation="fadeInUp" delay={400}>
+            <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-[18px] leading-relaxed">
+              This realization drove Bradford to pivot from AI to governance,
+              applying his background in regulatory innovation, finance, and
+              technology to create a better model for cities, economic
+              development, and ultimately organizing human civilization. Instead
+              of trying to reform legacy systems, he set out to build entirely new
+              ones from scratch—Alpha was born.
+            </p>
+          </ScrollAnimationWrapper>
 
-          <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-[18px] leading-relaxed">
-            Alpha solves what legacy governments cannot: It designs
-            ultra-modern, self-sufficient metropolises with high-performance
-            governance, industry-driven economic development, and
-            investor-friendly policies. Inspired by Singapore, Dubai, and
-            Shenzhen, Alpha creates full-stack economic ecosystems—from farmer
-            to founder—where capital, industry, and human talent converge in an
-            environment designed for success. Since securing strategic land
-            concessions and launching master plans across multiple regions,
-            Alpha has rapidly evolved from vision to reality.
-          </p>
+          <ScrollAnimationWrapper animation="fadeInUp" delay={600}>
+            <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-[18px] leading-relaxed">
+              Alpha solves what legacy governments cannot: It designs
+              ultra-modern, self-sufficient metropolises with high-performance
+              governance, industry-driven economic development, and
+              investor-friendly policies. Inspired by Singapore, Dubai, and
+              Shenzhen, Alpha creates full-stack economic ecosystems—from farmer
+              to founder—where capital, industry, and human talent converge in an
+              environment designed for success. Since securing strategic land
+              concessions and launching master plans across multiple regions,
+              Alpha has rapidly evolved from vision to reality.
+            </p>
+          </ScrollAnimationWrapper>
 
           <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-[18px] leading-relaxed">
             Traditional cities are failing ambitious builders. Once-thriving
@@ -158,17 +167,17 @@ const Hero = () => {
 
 const About = () => {
   const teamInvestors = [
-    {
-      id: 1,
-      name: "Patri and Pronomos",
-      title: "",
-      image: fallbackImg,
-      description: [
-        "With more than 15 years of experience Jackilina has built her career through various public and private sector organizations, focusing on banking and finance, financial inclusion, economic and community development, research and analysis, project coordination, monitoring and evaluation, monetary policy, business & strategy advisory, and stakeholder engagement. During her career she has led and advised investment companies within diverse sectors, including financial services, natural resources, energy, and infrastructure in several African countries. Jackilina has held several significant positions, including Coordinator of Corporate Social Responsibility Projects at Noble Energy/Chevron, World Bank Consultant, Executive Director and Board Member of the Central Bank of São Tomé and Príncipe where she played a major role leading   the county’s third monetary reform. She is fluent in Portuguese, French, and Spanish.",
-        // "https://www.linkedin.com/in/jacklina-trindade-soares",
-        // "Pedro Malfagra advisor)",
-      ],
-    },
+    // {
+    //   id: 1,
+    //   name: "Patri and Pronomos",
+    //   title: "",
+    //   image: fallbackImg,
+    //   description: [
+    //     "With more than 15 years of experience Jackilina has built her career through various public and private sector organizations, focusing on banking and finance, financial inclusion, economic and community development, research and analysis, project coordination, monitoring and evaluation, monetary policy, business & strategy advisory, and stakeholder engagement. During her career she has led and advised investment companies within diverse sectors, including financial services, natural resources, energy, and infrastructure in several African countries. Jackilina has held several significant positions, including Coordinator of Corporate Social Responsibility Projects at Noble Energy/Chevron, World Bank Consultant, Executive Director and Board Member of the Central Bank of São Tomé and Príncipe where she played a major role leading   the county’s third monetary reform. She is fluent in Portuguese, French, and Spanish.",
+    //     // "https://www.linkedin.com/in/jacklina-trindade-soares",
+    //     // "Pedro Malfagra advisor)",
+    //   ],
+    // },
     {
       id: 2,
       name: "Yomi and Rendeavour",
@@ -265,16 +274,22 @@ const About = () => {
         {/* Content Container */}
         <div className="relative z-10 px-4 sm:px-6 md:px-12 lg:px-24 py-12 sm:py-16 md:py-20">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] font-bold text-green-800 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-16">
-              Leadership Team
-            </h2>
+            <ScrollAnimationWrapper animation="fadeInDown">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] font-bold text-green-800 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-16">
+                Leadership Team
+              </h2>
+            </ScrollAnimationWrapper>
 
             <div className="space-y-6 sm:space-y-8 md:space-y-12">
-              {teamMembers.map((member) => (
-                <div
+              {teamMembers.map((member, index) => (
+                <ScrollAnimationWrapper
                   key={member.id}
-                  className="flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-12 backdrop-blur-sm rounded-lg p-4 sm:p-6"
+                  animation="fadeInUp"
+                  delay={index * 300}
                 >
+                  <div
+                    className="flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-12 backdrop-blur-sm rounded-lg p-4 sm:p-6"
+                  >
                   {/* Profile Image */}
                   <div className="flex-shrink-0 mx-auto md:mx-0">
                     <div className="w-[180px] h-[225px] xs:w-[200px] xs:h-[250px] sm:w-[220px] sm:h-[275px] md:w-[200px] md:h-[250px] lg:w-[240px] lg:h-[300px] xl:w-[266px] xl:h-[328px] rounded-lg overflow-hidden shadow-md transition-transform duration-300 hover:scale-105">
@@ -368,7 +383,8 @@ const About = () => {
                         </div>
                       )}
                   </div>
-                </div>
+                  </div>
+                </ScrollAnimationWrapper>
               ))}
             </div>
           </div>

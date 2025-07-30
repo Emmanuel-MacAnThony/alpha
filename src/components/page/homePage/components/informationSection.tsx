@@ -9,29 +9,55 @@ import visionSVG from "../../../../../public/visio.svg";
 import missionSVG from "../../../../../public/mission.svg";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { ScrollAnimationWrapper, useScrollAnimation } from "@/lib/useScrollAnimation";
 
 // Reusable section component with exact same styles
-const Section = ({ bgColor, icon, title, content }: any) => (
-  <div
-    className={`flex-1 ${bgColor} p-6 sm:p-8 md:p-10 lg:p-12 mx-4 mb-4 md:mb-0 md:mx-0 rounded-lg md:rounded-none`}
-  >
-    <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-      <div className="p-2 sm:p-3 rounded-full">
-        <Image
-          src={icon}
-          className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14"
-          alt={title.toLowerCase()}
-        />
+const Section = ({ bgColor, icon, title, content, index }: any) => {
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation({ 
+    delay: index * 200, 
+    threshold: 0.3 
+  });
+  const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation({ 
+    delay: index * 200 + 300, 
+    threshold: 0.3 
+  });
+
+  return (
+    <div
+      className={`flex-1 ${bgColor} p-6 sm:p-8 md:p-10 lg:p-12 mx-4 mb-4 md:mb-0 md:mx-0 rounded-lg md:rounded-none`}
+    >
+      <div 
+        ref={titleRef as React.RefObject<HTMLDivElement>}
+        className={`flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6 transition-all duration-700 ease-out ${
+          titleVisible 
+            ? 'opacity-100 translate-y-0' 
+            : 'opacity-0 translate-y-8'
+        }`}
+      >
+        <div className="p-2 sm:p-3 rounded-full">
+          <Image
+            src={icon}
+            className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14"
+            alt={title.toLowerCase()}
+          />
+        </div>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[48px] font-bold text-[#034001]">
+          {title}
+        </h2>
       </div>
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[48px] font-bold text-[#034001]">
-        {title}
-      </h2>
+      <p 
+        ref={contentRef as React.RefObject<HTMLParagraphElement>}
+        className={`text-[#000000] leading-relaxed text-sm sm:text-base md:text-lg lg:text-[20px] transition-all duration-700 ease-out ${
+          contentVisible 
+            ? 'opacity-100 translate-y-0' 
+            : 'opacity-0 translate-y-8'
+        }`}
+      >
+        {content}
+      </p>
     </div>
-    <p className="text-[#000000] leading-relaxed text-sm sm:text-base md:text-lg lg:text-[20px]">
-      {content}
-    </p>
-  </div>
-);
+  );
+};
 
 function VisionMissionSection() {
   const sections = [
@@ -40,14 +66,14 @@ function VisionMissionSection() {
       icon: visionSVG,
       title: "Vision",
       content:
-        "Alpha is building the world's most advanced cities—where innovation meets lifestyle, and communities live and work in perfect harmony. From farmer to founder, these smart hubs offer opportunity, security, and an active, fulfilling lifestyle—setting a new standard for human civilization.",
+        "Alpha is building the world's most advanced cities—where industry thrives, families flourish, and nature and innovation exist in perfect harmony. From farmer to founder, these vibrant hubs offer opportunity, security, and an active, fulfilling lifestyle—setting a new standard for human civilization.",
     },
     {
       bgColor: "bg-neutral-cream",
       icon: missionSVG,
       title: "Mission",
       content:
-        "Alpha builds ultra-modern, self-sufficient metropolises designed around innovative sustainability and governance models, fostering local economic development fueled by global investment and migration. Through cutting-edge infrastructure and operational precision — integrating private sector efficiency, innovative tech-driven governance, strategic urban planning, and a commitment to environmental security, creates engines of wealth creation for everyone.",
+        "Alpha builds ultra-modern, self-sufficient metropolises that offer compelling alternatives to traditional governance models, fostering local economic development fueled by global investment and migration. We envision a future where cities are designed with precision—integrating private sector efficiency, innovative tech-driven governance, strategic urban planning, and investor-friendly policies to create thriving, secure, engines of wealth creation for everyone. By creating dynamic economic hubs tailored to each region's strengths, Alpha empowers communities to thrive in a rapidly evolving world.",
     },
   ];
 
@@ -60,6 +86,7 @@ function VisionMissionSection() {
           icon={section.icon}
           title={section.title}
           content={section.content}
+          index={index}
         />
       ))}
     </div>
@@ -135,11 +162,16 @@ const InformationSection = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row gap-8 text-white">
             {sections.map((section, index) => (
-              <FeatureSection
+              <ScrollAnimationWrapper
                 key={index}
-                title={section.title}
-                items={section.items}
-              />
+                animation="fadeInUp"
+                delay={index * 200}
+              >
+                <FeatureSection
+                  title={section.title}
+                  items={section.items}
+                />
+              </ScrollAnimationWrapper>
             ))}
           </div>
         </div>
@@ -189,57 +221,65 @@ const InformationSection = () => {
         />
 
         <div className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] font-bold text-green-800 mb-8 sm:mb-10 md:mb-12 lg:mb-14 xl:mb-16">
-            Leadership Team
-          </h2>
+          <ScrollAnimationWrapper animation="fadeInDown">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] font-bold text-green-800 mb-8 sm:mb-10 md:mb-12 lg:mb-14 xl:mb-16">
+              Leadership Team
+            </h2>
+          </ScrollAnimationWrapper>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
             {/* Bradford */}
-            <div className="text-center">
-              <div className="w-[280px] h-[350px]  mb-4 rounded-2xl overflow-hidden bg-gray-200 relative">
-                <Image
-                  src={bradford}
-                  alt="Bradford"
-                  width={280}
-                  height={350}
-                  className="w-full h-full object-cover"
-                />
+            <ScrollAnimationWrapper animation="scaleIn" delay={200}>
+              <div className="text-center">
+                <div className="w-[280px] h-[350px]  mb-4 rounded-2xl overflow-hidden bg-gray-200 relative">
+                  <Image
+                    src={bradford}
+                    alt="Bradford"
+                    width={280}
+                    height={350}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-1">
+                  Bradford
+                </h3>
               </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-1">
-                Bradford
-              </h3>
-            </div>
+            </ScrollAnimationWrapper>
 
             {/* Jacklina */}
-            <div className="text-center">
-              <div className="w-[280px] h-[350px] mx-auto mb-4 rounded-2xl overflow-hidden bg-gray-300 relative">
-                <Image
-                  src={fallBackImg}
-                  alt="Jacklina"
-                  width={280}
-                  height={350}
-                  className="w-full h-full object-cover"
-                />
+            <ScrollAnimationWrapper animation="scaleIn" delay={400}>
+              <div className="text-center">
+                <div className="w-[280px] h-[350px] mx-auto mb-4 rounded-2xl overflow-hidden bg-gray-300 relative">
+                  <Image
+                    src={fallBackImg}
+                    alt="Jacklina"
+                    width={280}
+                    height={350}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-1">
+                  Jacklina
+                </h3>
               </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-1">
-                Jacklina
-              </h3>
-            </div>
+            </ScrollAnimationWrapper>
 
             {/* Pedro */}
-            <div className="text-center">
-              <div className="w-[280px] h-[350px] mx-auto mb-4 rounded-2xl overflow-hidden bg-gray-300 relative">
-                <Image
-                  src={fallBackImg}
-                  alt="Pedro"
-                  width={280}
-                  height={350}
-                  className="w-full h-full object-cover"
-                />
+            <ScrollAnimationWrapper animation="scaleIn" delay={600}>
+              <div className="text-center">
+                <div className="w-[280px] h-[350px] mx-auto mb-4 rounded-2xl overflow-hidden bg-gray-300 relative">
+                  <Image
+                    src={fallBackImg}
+                    alt="Pedro"
+                    width={280}
+                    height={350}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-1">
+                  Pedro
+                </h3>
               </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-1">
-                Pedro
-              </h3>
-            </div>
+            </ScrollAnimationWrapper>
           </div>
         </div>
       </div>
@@ -247,50 +287,51 @@ const InformationSection = () => {
       {/* Project Updates Section */}
       <div className="bg-green-dark px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-16">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[48px] font-bold text-white mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-            Project Updates
-          </h2>
+          <ScrollAnimationWrapper animation="fadeInDown">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[48px] font-bold text-white mb-6 sm:mb-8 md:mb-10 lg:mb-12">
+              Project Updates
+            </h2>
+          </ScrollAnimationWrapper>
           <div className="flex flex-col lg:flex-row gap-8 items-start">
             {/* Image */}
-            <div className="lg:w-[515px] w-full">
-              <div className="w-full h-[400px] lg:h-[531px] rounded-2xl overflow-hidden">
-                <Image
-                  src={umbrella}
-                  alt="Tropical resort with blue sky and water"
-                  width={515}
-                  height={531}
-                  className="w-full h-full object-cover"
-                />
+            <ScrollAnimationWrapper animation="fadeInLeft" delay={200}>
+              <div className="lg:w-[515px] w-full">
+                <div className="w-full h-[400px] lg:h-[531px] rounded-2xl overflow-hidden">
+                  <Image
+                    src={umbrella}
+                    alt="Tropical resort with blue sky and water"
+                    width={515}
+                    height={531}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
-            </div>
+            </ScrollAnimationWrapper>
 
             {/* Content */}
-            <div className="lg:w-[500px] w-full text-white">
-              <p className="text-base sm:text-lg md:text-xl lg:text-[22px] leading-relaxed mb-4 sm:mb-5 md:mb-6">
-                Alpha solves what legacy governments cannot. It designs
-                ultra-modern, truly self-sufficient metropolises with
-                high-performance governance, industry-driven economic
-                development, and investor-friendly policies. Inspired by
-                Singapore, Dubai, and Shenzhen, Alpha creates full-stack
-                economic ecosystems—from farmer to founder—where capital,
-                industry, and human talent converge in an environment designed
-                for success. Since securing strategic land concessions and
-                launching master plans across multiple regions, Alpha has
-                rapidly evolved from vision to reality.
-              </p>
+            <ScrollAnimationWrapper animation="fadeInRight" delay={400}>
+              <div className="lg:w-[500px] w-full text-white">
+                <p className="text-base sm:text-lg md:text-xl lg:text-[22px] leading-relaxed mb-4 sm:mb-5 md:mb-6">
+                  Alpha solves what legacy governments cannot. It designs
+                  ultra-modern, truly self-sufficient metropolises with
+                  high-performance governance, industry-driven economic
+                  development, and investor-friendly policies. Inspired by
+                  Singapore, Dubai, and Shenzhen, Alpha creates full-stack
+                  economic ecosystems—from farmer to founder—where capital,
+                  industry, and human talent converge in an environment designed
+                  for success. Since securing strategic land concessions and
+                  launching master plans across multiple regions, Alpha has
+                  rapidly evolved from vision to reality.
+                </p>
 
-              {/* <div className="flex items-center">
-                <span className="text-base sm:text-lg md:text-xl lg:text-[22px] font-medium underline cursor-pointer">Read More</span>
-                <ArrowRight className="text-white w-4 h-4 sm:w-4 sm:h-4 md:w-4 md:h-4 lg:w-5 lg:h-5  cursor-pointer" />
-              </div> */}
-
-              <Link href="/about" className="flex items-center">
-                <span className="text-base sm:text-lg md:text-xl lg:text-[22px] font-medium underline cursor-pointer">
-                  Read More
-                </span>
-                <ArrowRight className="text-white w-4 h-4 sm:w-4 sm:h-4 md:w-4 md:h-4 lg:w-5 lg:h-5 cursor-pointer" />
-              </Link>
-            </div>
+                <Link href="/about" className="flex items-center">
+                  <span className="text-base sm:text-lg md:text-xl lg:text-[22px] font-medium underline cursor-pointer">
+                    Read More
+                  </span>
+                  <ArrowRight className="text-white w-4 h-4 sm:w-4 sm:h-4 md:w-4 md:h-4 lg:w-5 lg:h-5 cursor-pointer" />
+                </Link>
+              </div>
+            </ScrollAnimationWrapper>
           </div>
         </div>
       </div>

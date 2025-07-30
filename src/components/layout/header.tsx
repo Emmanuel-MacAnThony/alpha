@@ -108,7 +108,7 @@ function Header() {
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-    };
+    }; 
   }, [pathname, isClient]);
 
   const navLinks = [
@@ -192,14 +192,36 @@ function Header() {
                   key={index}
                   href={link.href}
                   onClick={(e) => handleSmoothScroll(e, link.href, link.isPage)}
-                  className={`font-medium transition-all duration-300 px-3 py-2 rounded-md ${
+                  className={`relative font-medium transition-all duration-500 ease-out px-4 py-3 rounded-xl group overflow-hidden focus:outline-none ${
                     isActive 
-                      ? 'text-white ring-2 ring-white/70 bg-white/10 shadow-lg' 
-                      : 'text-white hover:text-white/80 focus:text-white focus:outline-none hover:ring-2 hover:ring-white/30 focus:ring-2 focus:ring-white/50 hover:bg-white/5'
+                      ? 'text-white shadow-lg transform scale-105' 
+                      : 'text-white/90 hover:text-white focus:text-white'
                   }`}
                   style={{ fontSize: '16px' }}
                 >
-                  {link.label}
+                  {/* Background gradient animation */}
+                  <div className={`absolute inset-0 rounded-xl transition-all duration-500 ease-out ${
+                    isActive 
+                      ? 'bg-gradient-to-r from-white/20 via-white/15 to-white/20 opacity-100 scale-100' 
+                      : 'bg-gradient-to-r from-white/10 via-white/5 to-white/10 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 group-focus:opacity-100 group-focus:scale-100'
+                  }`}></div>
+                  
+                  {/* Animated underline */}
+                  <div className={`absolute bottom-1 left-1/2 h-0.5 bg-gradient-to-r from-transparent via-white to-transparent transition-all duration-500 ease-out transform -translate-x-1/2 ${
+                    isActive 
+                      ? 'w-3/4 opacity-100' 
+                      : 'w-0 opacity-0 group-hover:w-3/4 group-hover:opacity-70 group-focus:w-3/4 group-focus:opacity-70'
+                  }`}></div>
+                  
+                  {/* Text content */}
+                  <span className="relative z-10 transition-transform duration-300 ease-out group-hover:scale-105">
+                    {link.label}
+                  </span>
+                  
+                  {/* Subtle glow effect for active state */}
+                  {isActive && (
+                    <div className="absolute inset-0 rounded-xl bg-white/5 shadow-inner animate-pulse" style={{ animationDuration: '3s' }}></div>
+                  )}
                 </a>
               );
             })}
@@ -279,29 +301,6 @@ function Header() {
         
         .animate-slide-down {
           animation: slide-down 0.3s ease-out;
-        }
-
-        /* Smooth scrolling for the entire page */
-        html {
-          scroll-behavior: smooth;
-        }
-
-        /* Custom scrollbar styling */
-        ::-webkit-scrollbar {
-          width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-          background: rgba(0, 0, 0, 0.1);
-        }
-
-        ::-webkit-scrollbar-thumb {
-          background: rgba(255, 255, 255, 0.3);
-          border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-          background: rgba(255, 255, 255, 0.5);
         }
       `}</style>
     </>
