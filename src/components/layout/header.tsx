@@ -171,20 +171,21 @@ function Header() {
 
   return (
     <>
-      <header className="top-0 left-0 right-0 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-6 bg-transparent z-50">
-        <nav className="flex items-center justify-between max-w-7xl mx-auto">
-          <span className="text-white text-xl font-bold">
+      <header className="top-0 left-0 right-0 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 py-6 bg-transparent z-50">
+        <nav className="flex items-center justify-between w-full">
+          <div className="flex-shrink-0">
             <Image
               src={logo}
               alt="logo"
               width={321}
               height={46}
               priority 
+              className="h-8 w-auto sm:h-10 md:h-11 lg:h-12 xl:h-14"
             />
-          </span>
+          </div>
           
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-6 xl:space-x-8 2xl:space-x-10 flex-shrink-0">
             {navLinks.map((link, index) => {
               const isActive = isActiveLink(link.href, link.isPage, link.section);
               return (
@@ -192,12 +193,12 @@ function Header() {
                   key={index}
                   href={link.href}
                   onClick={(e) => handleSmoothScroll(e, link.href, link.isPage)}
-                  className={`relative font-medium transition-all duration-500 ease-out px-4 py-3 rounded-xl group overflow-hidden focus:outline-none ${
+                  className={`relative font-medium transition-all duration-500 ease-out px-3 py-2 md:px-4 md:py-3 lg:px-5 lg:py-3 xl:px-6 xl:py-3 rounded-xl group focus:outline-none whitespace-nowrap ${
                     isActive 
                       ? 'text-white shadow-lg transform scale-105' 
                       : 'text-white/90 hover:text-white focus:text-white'
                   }`}
-                  style={{ fontSize: '16px' }}
+                  style={{ fontSize: 'clamp(14px, 1.5vw, 16px)' }}
                 >
                   {/* Background gradient animation */}
                   <div className={`absolute inset-0 rounded-xl transition-all duration-500 ease-out ${
@@ -228,7 +229,7 @@ function Header() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex-shrink-0">
             <button 
               ref={buttonRef}
               className="text-white cursor-pointer p-2 hover:bg-white/10 rounded-md transition-colors duration-200"
@@ -263,7 +264,7 @@ function Header() {
             
             {/* Menu Items */}
             <div className="px-10 py-8">
-              <div className="flex flex-col space-y-6 max-w-7xl mx-auto">
+              <div className="flex flex-col space-y-6 max-w-screen-2xl mx-auto">
                 {navLinks.map((link, index) => {
                   const isActive = isActiveLink(link.href, link.isPage, link.section);
                   return (
