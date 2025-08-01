@@ -24,15 +24,15 @@ const CompanyHistory = () => {
         />
       </div>
 
-      <div className="relative z-10  py-6 px-4 sm:px-6 md:px-8 lg:px-0 xl:px-0">
+      <div className="relative z-10  py-4 sm:py-5 md:py-6 lg:py-8 xl:py-10 px-5 sm:px-7 md:px-9 lg:px-3 xl:px-4">
         <ScrollAnimationWrapper animation="fadeInDown">
-          <h1 className="pt-6 sm:pt-8 md:pt-10 lg:pt-12 px-4 sm:px-6 md:px-8 lg:px-12 xl:pl-24 2xl:pl-40 xl:pr-12 2xl:pr-16 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[64px] font-bold text-[#141B34] mb-4 sm:mb-6 md:mb-8">
+          <h1 className="pt-4 sm:pt-5 md:pt-6 lg:pt-8 px-4 sm:px-6 md:px-8 lg:px-12 xl:pl-24 2xl:pl-40 xl:pr-12 2xl:pr-16 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#141B34] mb-4 sm:mb-6 md:mb-8">
             Company History
           </h1>
         </ScrollAnimationWrapper>
 
         {/* Content */}
-        <div className="space-y-6 text-left px-6 sm:px-9 md:px-12 lg:px-18 xl:pl-36 2xl:pl-60 xl:pr-18 2xl:pr-24">
+        <div className="space-y-6 sm:space-y-7 md:space-y-8 lg:space-y-10 xl:space-y-12 text-left px-6 sm:px-9 md:px-12 lg:px-18 xl:pl-36 2xl:pl-60 xl:pr-18 2xl:pr-24">
           <ScrollAnimationWrapper animation="fadeInUp" delay={200}>
             <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl leading-relaxed">
               Alpha City was founded by Bradford Cross, an entrepreneur and
@@ -281,7 +281,7 @@ const About = () => {
         </div>
 
         {/* Content Container */}
-        <div className="relative z-10 px-4 sm:px-6 md:px-12 lg:px-24 py-12 sm:py-16 md:py-20">
+        <div className="relative z-10 px-4 sm:px-6 md:px-12 lg:px-24 py-8 sm:py-10 md:py-12">
             <ScrollAnimationWrapper animation="fadeInDown">
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-green-800 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-16">
                 Leadership Team
@@ -418,8 +418,8 @@ const About = () => {
         </div>
 
         {/* Content Container */}
-        <div className="relative z-10 px-6 md:px-24 py-20">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] font-bold text-green-800 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-16">
+        <div className="relative z-10 px-6 md:px-24 py-8 sm:py-10 md:py-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-green-800 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-16">
             Investors and Advisors
           </h2>
 
