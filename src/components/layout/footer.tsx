@@ -32,12 +32,11 @@ const AlphaFooter = () => {
       />
 
       {/* Main Footer Content - Added z-20 to ensure it appears above background images */}
-      <div className="relative z-20 px-6 py-12 lg:px-8 ">
-        <div className="max-w-7xl mx-auto">
+      <div className="relative z-20 px-4 sm:px-6 md:px-8 lg:px-12 xl:pl-24 2xl:pl-40 xl:pr-12 2xl:pr-16 py-12">
           {/* Header Section */}
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-8">
             <div className="mb-6 lg:mb-0">
-              <h2 className="text-white text-xl sm:text-2xl lg:text-3xl mb-4 font-medium">
+              <h2 className="text-white text-xl sm:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl mb-4 font-medium" style={{ fontSize: 'clamp(1.25rem, 2.5vw, 3rem)' }}>
                 Want to know more?
               </h2>
               {/* Logo */}
@@ -58,7 +57,7 @@ const AlphaFooter = () => {
             <div className="lg:self-start">
               <Link
                 href="/about#contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-2 h-[47px] bg-lime-400 text-green-800 rounded-full text-sm sm:text-base lg:text-lg font-medium hover:bg-lime-300 transition-colors duration-200 w-auto max-w-fit"
+                className="inline-flex items-center justify-center gap-2 px-6 py-2 h-[47px] xl:h-[52px] 2xl:h-[60px] bg-lime-400 text-green-800 rounded-full text-sm sm:text-base lg:text-lg xl:text-xl 2xl:text-2xl font-medium hover:bg-lime-300 transition-colors duration-200 w-auto max-w-fit" style={{ fontSize: 'clamp(0.875rem, 1.3vw, 1.5rem)' }}
               >
                 Contact us
                 <Image
@@ -82,23 +81,23 @@ const AlphaFooter = () => {
             <div className="flex flex-col space-y-6 w-full lg:w-[487px]">
               {/* Our Cities */}
               <div>
-                <h3 className="font-semibold text-sm sm:text-lg lg:text-[20px] mb-[0.2px] flex items-center">
-                  <span className="w-2 h-2 bg-lime-400 rounded-full mr-3"></span>
+                <h3 className="font-semibold mb-2 flex items-center leading-tight" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.875rem)', lineHeight: '1.2' }}>
+                  <span className="w-2 h-2 bg-lime-400 rounded-full mr-3 flex-shrink-0"></span>
                   Our Cities
                 </h3>
               </div>
 
               {/* Investments & Partnerships */}
               <div>
-                <h3 className="font-semibold text-sm sm:text-lg lg:text-[20px] mb-[1px] flex items-center">
-                  <span className="w-2 h-2 bg-lime-400 rounded-full mr-3"></span>
+                <h3 className="font-semibold mb-3 flex items-center leading-tight" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.875rem)', lineHeight: '1.2' }}>
+                  <span className="w-2 h-2 bg-lime-400 rounded-full mr-3 flex-shrink-0"></span>
                   Investments &amp; Partnerships
                 </h3>
-                <ul className="space-y-2 text-xs sm:text-sm lg:text-[15px] text-green-100 ml-5">
+                <ul className="space-y-3 text-green-100 ml-5" style={{ fontSize: 'clamp(0.75rem, 1.2vw, 1.125rem)', lineHeight: '1.4' }}>
                   <li>
                     <Link
                       href="#"
-                      className="hover:text-lime-400 transition-colors duration-200 block leading-relaxed"
+                      className="hover:text-lime-400 transition-colors duration-200 block leading-normal"
                     >
                       Why Invest in Alpha Cities?
                     </Link>
@@ -106,7 +105,7 @@ const AlphaFooter = () => {
                   <li>
                     <Link
                       href="#"
-                      className="hover:text-lime-400 transition-colors duration-200 block leading-relaxed"
+                      className="hover:text-lime-400 transition-colors duration-200 block leading-normal"
                     >
                       Investment Models (Real Estate, Commercial, Infrastructure)
                     </Link>
@@ -114,7 +113,7 @@ const AlphaFooter = () => {
                   <li>
                     <Link
                       href="#"
-                      className="hover:text-lime-400 transition-colors duration-200 block leading-relaxed"
+                      className="hover:text-lime-400 transition-colors duration-200 block leading-normal"
                     >
                       Success Stories / Case Studies
                     </Link>
@@ -122,7 +121,7 @@ const AlphaFooter = () => {
                   <li>
                     <Link
                       href="#"
-                      className="hover:text-lime-400 transition-colors duration-200 block leading-relaxed"
+                      className="hover:text-lime-400 transition-colors duration-200 block leading-normal"
                     >
                       Contact for Investment Inquiries
                     </Link>
@@ -132,30 +131,29 @@ const AlphaFooter = () => {
 
               {/* Newsroom */}
               <div>
-                <h3 className="font-semibold text-sm sm:text-lg lg:text-[20px] mb-[0.2px] flex items-center">
-                  <span className="w-2 h-2 bg-lime-400 rounded-full mr-3"></span>
+                <h3 className="font-semibold mb-2 flex items-center leading-tight" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.875rem)', lineHeight: '1.2' }}>
+                  <span className="w-2 h-2 bg-lime-400 rounded-full mr-3 flex-shrink-0"></span>
                   Newsroom
                 </h3>
               </div>
 
               {/* Community */}
               <div>
-                <h3 className="font-semibold mb-[0.2px] text-sm sm:text-lg lg:text-[20px] flex items-center">
-                  <span className="w-2 h-2 bg-lime-400 rounded-full mr-3"></span>
+                <h3 className="font-semibold mb-2 flex items-center leading-tight" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.875rem)', lineHeight: '1.2' }}>
+                  <span className="w-2 h-2 bg-lime-400 rounded-full mr-3 flex-shrink-0"></span>
                   Community
                 </h3>
               </div>
 
               {/* Careers */}
               <div>
-                <h3 className="font-semibold text-sm sm:text-lg lg:text-[20px] mb-[0.2px] flex items-center">
-                  <span className="w-2 h-2 bg-lime-400 rounded-full mr-3"></span>
+                <h3 className="font-semibold mb-2 flex items-center leading-tight" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.875rem)', lineHeight: '1.2' }}>
+                  <span className="w-2 h-2 bg-lime-400 rounded-full mr-3 flex-shrink-0"></span>
                   Careers
                 </h3>
               </div>
             </div>
           </div>
-        </div>
       </div>
 
       {/* Wave Divider Image */}

@@ -311,7 +311,7 @@ const InformationSection = () => {
 
             {/* Content */}
             <ScrollAnimationWrapper animation="fadeInRight" delay={400} className="flex-1">
-              <div className="w-full max-w-[400px] md:max-w-[450px] lg:max-w-[500px] xl:max-w-[550px] 2xl:max-w-[600px] text-white">
+              <div className="w-full max-w-[400px] md:max-w-[450px] lg:max-w-[500px] xl:max-w-[600px] 2xl:max-w-[700px] min-[2240px]:max-w-[850px] text-white">
                 <p className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl leading-relaxed lg:leading-loose xl:leading-loose mb-8 lg:mb-12 xl:mb-16 2xl:mb-20" style={{ fontSize: 'clamp(1rem, 1.3vw, 1.8rem)', lineHeight: 'clamp(1.5, 2vw, 2.2)' }}>
                   Alpha solves what legacy governments cannot. It designs
                   ultra-modern, truly self-sufficient metropolises with
