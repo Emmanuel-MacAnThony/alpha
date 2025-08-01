@@ -10,24 +10,24 @@ const SliderControls = ({ currentSlide, totalSlides, onPrev, onNext }: any) => {
       {/* Previous Button - Responsive Pill Shape */}
       <button
         onClick={onPrev}
-        className="h-[35px] w-[64px] sm:h-[40px] sm:w-[73px] md:h-[45px] md:w-[82px] lg:h-[48px] lg:w-[87px] px-3 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 border border-white/20 cursor-pointer"
+        className="h-[35px] w-[64px] sm:h-[40px] sm:w-[73px] md:h-[45px] md:w-[82px] lg:h-[52px] lg:w-[94px] xl:h-[56px] xl:w-[102px] 2xl:h-[60px] 2xl:w-[110px] px-3 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 border border-white/20 cursor-pointer"
       >
-        <ArrowRight className="text-white w-3 h-3 sm:w-4 sm:h-4 md:w-4 md:h-4 lg:w-5 lg:h-5 rotate-180" />
+        <ArrowRight className="text-white w-3 h-3 sm:w-4 sm:h-4 md:w-4 md:h-4 lg:w-5 lg:h-5 xl:w-6 xl:h-6 2xl:w-7 2xl:h-7 rotate-180" />
       </button>
       
       {/* Slide Counter - Responsive text */}
       <div className="flex items-center space-x-2 sm:space-x-3 text-white">
-        <span className="text-sm sm:text-base md:text-base lg:text-lg font-medium">{currentSlide}</span>
-        <div className="w-3 sm:w-4 h-px bg-white/60"></div>
-        <span className="text-sm sm:text-base md:text-base lg:text-lg font-medium text-white/60">{totalSlides}</span>
+        <span className="text-sm sm:text-base md:text-base lg:text-lg xl:text-xl 2xl:text-2xl font-medium">{currentSlide}</span>
+        <div className="w-3 sm:w-4 lg:w-5 xl:w-6 2xl:w-7 h-px bg-white/60"></div>
+        <span className="text-sm sm:text-base md:text-base lg:text-lg xl:text-xl 2xl:text-2xl font-medium text-white/60">{totalSlides}</span>
       </div>
       
       {/* Next Button - Responsive Pill Shape */}
       <button
         onClick={onNext}
-        className="h-[35px] w-[64px] sm:h-[40px] sm:w-[73px] md:h-[45px] md:w-[82px] lg:h-[48px] lg:w-[87px] px-3 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 border border-white/20 cursor-pointer"
+        className="h-[35px] w-[64px] sm:h-[40px] sm:w-[73px] md:h-[45px] md:w-[82px] lg:h-[52px] lg:w-[94px] xl:h-[56px] xl:w-[102px] 2xl:h-[60px] 2xl:w-[110px] px-3 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 border border-white/20 cursor-pointer"
       >
-        <ArrowRight className="text-white w-3 h-3 sm:w-4 sm:h-4 md:w-4 md:h-4 lg:w-5 lg:h-5" />
+        <ArrowRight className="text-white w-3 h-3 sm:w-4 sm:h-4 md:w-4 md:h-4 lg:w-5 lg:h-5 xl:w-6 xl:h-6 2xl:w-7 2xl:h-7" />
       </button>
     </div>
   );
@@ -105,7 +105,7 @@ const ContentSlider = ({ onSlideChange }: any) => {
   if (!isClient) {
     return (
       <div className="flex flex-row items-end h-full max-w-svw px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 transition-all duration-800">
-        <div className="flex flex-1 flex-col sm:flex-row justify-between sm:items-center items-start gap-6 sm:gap-8 md:gap-10 py-6 sm:py-8 md:py-10 lg:py-12 xl:py-10 2xl:py-8">
+        <div className="flex flex-1 flex-col sm:flex-row justify-between sm:items-center items-start gap-6 sm:gap-8 md:gap-10 py-6 sm:py-8 md:py-10 lg:py-10 xl:py-8 2xl:py-6">
           <div className="flex-1 max-w-none sm:max-w-2xl lg:max-w-3xl xl:max-w-4xl">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-bold text-white mb-4 sm:mb-5 md:mb-6 lg:mb-8 leading-[0.85] sm:leading-[0.9] tracking-tight" style={{ fontSize: 'clamp(1.5rem, 4.5vw, 6rem)' }}>
               {slides[0].title}
@@ -127,7 +127,7 @@ const ContentSlider = ({ onSlideChange }: any) => {
 
   return (
     <div className="flex flex-row items-end h-full max-w-svw px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 transition-all duration-800">
-      <div className="flex flex-1 flex-col sm:flex-row justify-between sm:items-center items-start gap-6 sm:gap-8 md:gap-10 py-6 sm:py-8 md:py-10 lg:py-12 xl:py-10 2xl:py-8">
+      <div className="flex flex-1 flex-col sm:flex-row justify-between sm:items-center items-start gap-6 sm:gap-8 md:gap-10 py-6 sm:py-8 md:py-10 lg:py-10 xl:py-8 2xl:py-6">
         {/* Content that changes */}
         <div className="flex-1 max-w-none sm:max-w-2xl lg:max-w-3xl xl:max-w-4xl">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-bold text-white mb-4 sm:mb-5 md:mb-6 lg:mb-8 leading-[0.85] sm:leading-[0.9] tracking-tight" style={{ fontSize: 'clamp(1.5rem, 4.5vw, 6rem)' }}>
