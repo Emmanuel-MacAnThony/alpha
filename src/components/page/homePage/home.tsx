@@ -8,9 +8,9 @@ import { useEffect, useState, useRef, useCallback } from "react";
 
 const Hero = ({ currentSlide = 0, onSlideChange }: any) => {
   const heroImages = [
-    "/aboutHero.png",
-    "/aboutHero.png",
-    "/aboutHero.png",
+    "/home1.png",
+    "/home2.png",
+    "/home3.png",
     // "/hero_1.avif",
     // "/legacy_2.avif", 
     // "/hero_3.avif",
