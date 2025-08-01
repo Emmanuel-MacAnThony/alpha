@@ -96,11 +96,11 @@ function VisionMissionSection() {
 // Reusable section component
 // Reusable section component
 const FeatureSection = ({ title, items }: any) => (
-  <div className="flex-1 space-y-4">
-    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-bold">
+  <div className="flex-1 space-y-5 lg:space-y-6 xl:space-y-8 2xl:space-y-10">
+    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-bold" style={{ fontSize: 'clamp(1.5rem, 3vw, 3.5rem)' }}>
       {title}
     </h2>
-    <ul className="space-y-2 text-sm sm:text-base md:text-[16px] leading-relaxed">
+    <ul className="space-y-2 lg:space-y-3 xl:space-y-4 text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl leading-relaxed" style={{ fontSize: 'clamp(0.875rem, 1.2vw, 1.25rem)' }}>
       {items.map((item: any, index: any) => (
         <li key={index}>• {item}</li>
       ))}
@@ -154,13 +154,13 @@ const InformationSection = () => {
       </div>
       <div
         id="cities"
-        className="bg-orange-400 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-20 w-full -mt-6 relative z-10"
+        className="bg-orange-400 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 py-16 lg:py-20 xl:py-24 2xl:py-28 w-full -mt-6 relative z-10"
         style={{
           clipPath: "polygon(0 7%, 100% 0%, 100% 94%, 0 100%)",
         }}
       >
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row gap-8 text-white">
+        <div className="w-full">
+          <div className="flex flex-col md:flex-row gap-6 lg:gap-8 xl:gap-10 2xl:gap-12 text-white">
             {sections.map((section, index) => (
               <ScrollAnimationWrapper
                 key={index}

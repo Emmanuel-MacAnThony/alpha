@@ -105,12 +105,12 @@ const ContentSlider = ({ onSlideChange }: any) => {
   if (!isClient) {
     return (
       <div className="flex flex-row items-end h-full max-w-svw px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 transition-all duration-800">
-        <div className="flex flex-1 flex-col sm:flex-row justify-between sm:items-center items-start gap-6 sm:gap-8 md:gap-10 py-8 sm:py-10 md:py-12 lg:py-16">
+        <div className="flex flex-1 flex-col sm:flex-row justify-between sm:items-center items-start gap-6 sm:gap-8 md:gap-10 py-6 sm:py-8 md:py-10 lg:py-12 xl:py-10 2xl:py-8">
           <div className="flex-1 max-w-none sm:max-w-2xl lg:max-w-3xl xl:max-w-4xl">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-4 sm:mb-5 md:mb-6 lg:mb-8 leading-[0.85] sm:leading-[0.9] tracking-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-bold text-white mb-4 sm:mb-5 md:mb-6 lg:mb-8 leading-[0.85] sm:leading-[0.9] tracking-tight" style={{ fontSize: 'clamp(1.5rem, 4.5vw, 6rem)' }}>
               {slides[0].title}
             </h1>
-            <p className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl font-medium leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-loose mb-6 sm:mb-7 md:mb-8 lg:mb-10">
+            <p className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl font-medium leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-loose mb-6 sm:mb-7 md:mb-8 lg:mb-10" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.75rem)' }}>
               {slides[0].description}
             </p>
           </div>
@@ -127,13 +127,13 @@ const ContentSlider = ({ onSlideChange }: any) => {
 
   return (
     <div className="flex flex-row items-end h-full max-w-svw px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 transition-all duration-800">
-      <div className="flex flex-1 flex-col sm:flex-row justify-between sm:items-center items-start gap-6 sm:gap-8 md:gap-10 py-8 sm:py-10 md:py-12 lg:py-16">
+      <div className="flex flex-1 flex-col sm:flex-row justify-between sm:items-center items-start gap-6 sm:gap-8 md:gap-10 py-6 sm:py-8 md:py-10 lg:py-12 xl:py-10 2xl:py-8">
         {/* Content that changes */}
         <div className="flex-1 max-w-none sm:max-w-2xl lg:max-w-3xl xl:max-w-4xl">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-4 sm:mb-5 md:mb-6 lg:mb-8 leading-[0.85] sm:leading-[0.9] tracking-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-bold text-white mb-4 sm:mb-5 md:mb-6 lg:mb-8 leading-[0.85] sm:leading-[0.9] tracking-tight" style={{ fontSize: 'clamp(1.5rem, 4.5vw, 6rem)' }}>
             {slides[currentSlide].title}
           </h1>
-          <p className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl font-medium leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-loose mb-6 sm:mb-7 md:mb-8 lg:mb-10">
+          <p className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl font-medium leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-loose mb-6 sm:mb-7 md:mb-8 lg:mb-10" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.75rem)' }}>
             {slides[currentSlide].description}
           </p>
         </div>

@@ -134,7 +134,7 @@ const Hero = ({ currentSlide = 0, onSlideChange }: any) => {
   }, [currentSlide]);
 
   return (
-    <div className="relative -mt-25 pt-25 w-full min-h-screen max-h-4xl flex items-center justify-center z-10">
+    <div className="relative -mt-25 pt-25 w-full min-h-screen max-h-screen xl:max-h-[85vh] 2xl:max-h-[80vh] flex items-center justify-center z-10">
       <div className="absolute inset-0 overflow-hidden">
         {/* Current image layer */}
         <div 
