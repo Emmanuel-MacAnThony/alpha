@@ -41,17 +41,18 @@ const Section = ({ bgColor, icon, title, content, index }: any) => {
             alt={title.toLowerCase()}
           />
         </div>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[48px] font-bold text-[#034001]">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-[#034001]" style={{ fontSize: 'clamp(1.5rem, 3.5vw, 4rem)' }}>
           {title}
         </h2>
       </div>
       <p 
         ref={contentRef as React.RefObject<HTMLParagraphElement>}
-        className={`text-[#000000] leading-relaxed text-sm sm:text-base md:text-lg lg:text-[20px] transition-all duration-700 ease-out ${
+        className={`text-[#000000] leading-relaxed text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl transition-all duration-700 ease-out ${
           contentVisible 
             ? 'opacity-100 translate-y-0' 
             : 'opacity-0 translate-y-8'
         }`}
+        style={{ fontSize: 'clamp(0.875rem, 1.4vw, 1.5rem)' }}
       >
         {content}
       </p>
@@ -142,7 +143,7 @@ const InformationSection = () => {
   return (
     <div className="w-full bg-lime-400 relative">
       {/* Parallelogram section - using Next.js Image with fixed height */}
-      <div className="w-full h-[115px] -mt-8 relative z-20">
+      <div className="w-full h-[115px] -mt-8 lg:-mt-6 xl:-mt-4 2xl:-mt-2 relative z-20">
         <Image
           src="/headStripe.png"
           alt="Header stripe"
@@ -154,7 +155,7 @@ const InformationSection = () => {
       </div>
       <div
         id="cities"
-        className="bg-orange-400 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 py-16 lg:py-20 xl:py-24 2xl:py-28 w-full -mt-6 relative z-10"
+        className="bg-orange-400 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 py-16 lg:py-20 xl:py-24 2xl:py-28 w-full -mt-6 lg:-mt-8 xl:-mt-10 2xl:-mt-12 relative z-10"
         style={{
           clipPath: "polygon(0 7%, 100% 0%, 100% 94%, 0 100%)",
         }}
@@ -198,7 +199,7 @@ const InformationSection = () => {
 
       {/* Decorative Strips Section */}
 
-      <div className="hidden md:block w-full h-[115px] md:-mt-8 relative z-20">
+      <div className="hidden md:block w-full h-[115px] md:-mt-8 lg:-mt-10 xl:-mt-12 2xl:-mt-16 relative z-20">
         <Image
           src="/leadershipdivider.png"
           alt="Header stripe"
@@ -209,7 +210,7 @@ const InformationSection = () => {
         />
       </div>
       {/* Leadership Section */}
-      <div className="relative bg-[#FFF6F3] px-8 py-20 md:-mt-6">
+      <div className="relative bg-[#FFF6F3] px-8 py-20 md:-mt-6 lg:-mt-8 xl:-mt-10 2xl:-mt-12">
         {/* Background Image */}
 
         <Image
