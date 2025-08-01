@@ -26,15 +26,15 @@ const CompanyHistory = () => {
 
       <div className="relative z-10  py-6 px-4 sm:px-6 md:px-8 lg:px-0 xl:px-0">
         <ScrollAnimationWrapper animation="fadeInDown">
-          <h1 className="pt-6 sm:pt-8 md:pt-10 lg:pt-12 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[64px] font-bold text-[#141B34] mb-4 sm:mb-6 md:mb-8">
+          <h1 className="pt-6 sm:pt-8 md:pt-10 lg:pt-12 px-4 sm:px-6 md:px-8 lg:px-12 xl:pl-24 2xl:pl-40 xl:pr-12 2xl:pr-16 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[64px] font-bold text-[#141B34] mb-4 sm:mb-6 md:mb-8">
             Company History
           </h1>
         </ScrollAnimationWrapper>
 
         {/* Content */}
-        <div className="space-y-6 text-left px-4 sm:px-6 md:px-8 lg:px-12 xl:pl-24 2xl:pl-40 xl:pr-12 2xl:pr-16">
+        <div className="space-y-6 text-left px-6 sm:px-9 md:px-12 lg:px-18 xl:pl-36 2xl:pl-60 xl:pr-18 2xl:pr-24">
           <ScrollAnimationWrapper animation="fadeInUp" delay={200}>
-            <p className="text-[#000000] text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[28px] 2xl:text-[32px] leading-relaxed">
+            <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl leading-relaxed">
               Alpha City was founded by Bradford Cross, an entrepreneur and
               investor who spent over 20 years building and backing AI startups
               and leading deep tech and finance innovation. As a multi-time exited
@@ -55,7 +55,7 @@ const CompanyHistory = () => {
           </ScrollAnimationWrapper>
 
           <ScrollAnimationWrapper animation="fadeInUp" delay={400}>
-            <p className="text-[#000000] text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[28px] 2xl:text-[32px] leading-relaxed">
+            <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl leading-relaxed">
               This realization drove Bradford to pivot from AI to governance,
               applying his background in regulatory innovation, finance, and
               technology to create a better model for cities, economic
@@ -66,7 +66,7 @@ const CompanyHistory = () => {
           </ScrollAnimationWrapper>
 
           <ScrollAnimationWrapper animation="fadeInUp" delay={600}>
-            <p className="text-[#000000] text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[28px] 2xl:text-[32px] leading-relaxed">
+            <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl leading-relaxed">
               Alpha solves what legacy governments cannot: It designs
               ultra-modern, self-sufficient metropolises with high-performance
               governance, industry-driven economic development, and
@@ -79,7 +79,7 @@ const CompanyHistory = () => {
             </p>
           </ScrollAnimationWrapper>
 
-          <p className="text-[#000000] text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[28px] 2xl:text-[32px] leading-relaxed">
+          <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl leading-relaxed">
             Traditional cities are failing ambitious builders. Once-thriving
             talent hubs have become hostile to the very people driving human
             progress—choking growth with crushing regulation, stagnating
@@ -89,7 +89,7 @@ const CompanyHistory = () => {
             systems.
           </p>
 
-          <p className="text-[#000000] text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[28px] 2xl:text-[32px] leading-relaxed">
+          <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl leading-relaxed">
             Bradford’s entry into startup cities was accelerated by Pronomos
             Capital, where he partnered with Patri Friedman, grandson of Milton
             Friedman, the legendary free-market economist. Pronomos had already
@@ -102,7 +102,7 @@ const CompanyHistory = () => {
             private-sector-driven development.
           </p>
 
-          <p className="text-[#000000] text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[28px] 2xl:text-[32px] leading-relaxed">
+          <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl leading-relaxed">
             Unlike most development projects that take years or even decades to
             gain traction, Alpha moved at the speed of a tech startup. Within 12
             months of incorporation, Alpha secured agreements with three
@@ -112,7 +112,7 @@ const CompanyHistory = () => {
             Special Development Zone legal frameworks.
           </p>
 
-          <p className="text-[#000000] text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[28px] 2xl:text-[32px] leading-relaxed">
+          <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl leading-relaxed">
             Today, Alpha is securing land in increments larger than 1,000
             hectares, developing beachfront hospitality and entertainment,
             central business districts, agricultural hubs, and industrial
@@ -123,7 +123,7 @@ const CompanyHistory = () => {
             governance and economic development — Alpha is building it.
           </p>
 
-          {/* <p className="text-[#000000] text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[28px] 2xl:text-[32px] leading-relaxed">
+          {/* <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl leading-relaxed">
             What began as an idea to start a global movement, shaping the future
             of civilization into city at a time. The world needs a new model for
             governance and economic development — Alpha is building that model.
@@ -283,12 +283,12 @@ const About = () => {
         {/* Content Container */}
         <div className="relative z-10 px-4 sm:px-6 md:px-12 lg:px-24 py-12 sm:py-16 md:py-20">
             <ScrollAnimationWrapper animation="fadeInDown">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[72px] font-bold text-green-800 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-16">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-green-800 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-16">
                 Leadership Team
               </h2>
             </ScrollAnimationWrapper>
 
-          <div className="space-y-6 sm:space-y-8 md:space-y-12">
+          <div className="space-y-6 sm:space-y-8 md:space-y-12 max-w-[90rem]">
               {teamMembers.map((member, index) => (
                 <ScrollAnimationWrapper
                   key={member.id}
@@ -315,13 +315,13 @@ const About = () => {
                   {/* Content */}
                   <div className="flex-1">
                     {/* Name */}
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[56px] font-bold text-gray-900 mb-1">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-1">
                       {member.name}
                     </h2>
 
                     {/* Title */}
                     {member.title && (
-                      <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-[32px] 2xl:text-[36px] text-[#000000] mb-2 sm:mb-3 md:mb-4">
+                      <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-2xl text-[#000000] mb-2 sm:mb-3 md:mb-4">
                         {member.title}
                       </h3>
                     )}
@@ -331,9 +331,9 @@ const About = () => {
                       {member.description.map((paragraph, index) => (
                         <li
                           key={index}
-                          className="text-[#000000] text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[28px] 2xl:text-[32px] leading-relaxed flex items-start"
+                          className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl leading-relaxed flex items-start"
                         >
-                          <span className="text-green-800 font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-[32px] 2xl:text-[36px] mr-3 mt-1 flex-shrink-0">•</span>
+                          <span className="text-green-800 font-bold text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl mr-3 mt-1 flex-shrink-0">•</span>
                           <span className="flex-1">{paragraph}</span>
                         </li>
                       ))}
@@ -355,7 +355,7 @@ const About = () => {
                                   ? ""
                                   : "noopener noreferrer"
                               }
-                              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm sm:text-base md:text-lg lg:text-xl xl:text-[22px] 2xl:text-[24px] font-medium transition-all duration-200 ${
+                              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm md:text-base lg:text-base xl:text-lg font-medium transition-all duration-200 ${
                                 link.type === "email"
                                   ? "bg-blue-600 text-white hover:bg-blue-700 hover:shadow-md"
                                   : link.type === "linkedin"
@@ -423,7 +423,7 @@ const About = () => {
             Investors and Advisors
           </h2>
 
-          <div className="space-y-6 sm:space-y-8 md:space-y-12">
+          <div className="space-y-6 sm:space-y-8 md:space-y-12 max-w-[90rem]">
               {teamInvestors.map((member) => (
                 <div
                   key={member.id}
@@ -446,13 +446,13 @@ const About = () => {
                   {/* Content */}
                   <div className="flex-1">
                     {/* Name */}
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[56px] font-bold text-gray-900 mb-1">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-1">
                       {member.name}
                     </h2>
 
                     {/* Title */}
                     {member.title && (
-                      <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-[32px] 2xl:text-[36px] text-[#000000] mb-2 sm:mb-3 md:mb-4">
+                      <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-2xl text-[#000000] mb-2 sm:mb-3 md:mb-4">
                         {member.title}
                       </h3>
                     )}
@@ -461,7 +461,7 @@ const About = () => {
                     <ul className="space-y-2 sm:space-y-3 list-none">
                       {member.description.map((paragraph, index) => (
                         <li key={index} className="flex items-start">
-                          <span className="text-green-800 font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-[32px] 2xl:text-[36px] mr-3 mt-1 flex-shrink-0">•</span>
+                          <span className="text-green-800 font-bold text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl mr-3 mt-1 flex-shrink-0">•</span>
                           <span className="flex-1">
                             {paragraph.includes("http") ? (
                               <a
@@ -473,7 +473,7 @@ const About = () => {
                                 {paragraph}
                               </a>
                             ) : (
-                              <span className="text-[#000000] text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[28px] 2xl:text-[32px] leading-relaxed">
+                              <span className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl leading-relaxed">
                                 {paragraph}
                               </span>
                             )}

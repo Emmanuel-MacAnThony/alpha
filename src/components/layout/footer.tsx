@@ -57,16 +57,16 @@ const AlphaFooter = () => {
             <div className="lg:self-start">
               <Link
                 href="/about#contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-2 h-[47px] xl:h-[52px] 2xl:h-[60px] bg-lime-400 text-green-800 rounded-full text-sm sm:text-base lg:text-lg xl:text-xl 2xl:text-2xl font-medium hover:bg-lime-300 transition-colors duration-200 w-auto max-w-fit" style={{ fontSize: 'clamp(0.875rem, 1.3vw, 1.5rem)' }}
+                className="inline-flex items-center justify-center gap-2 px-6 py-2 sm:px-7 sm:py-3 lg:px-8 lg:py-3 xl:px-10 xl:py-4 bg-lime-400 text-green-800 rounded-full text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl font-medium hover:bg-lime-300 transition-colors duration-200 w-auto max-w-fit"
               >
                 Contact us
                 <Image
                   src={buttonArrow}
                   alt="Arrow Icon"
-                  width={17}
-                  height={17}
+                  width={20}
+                  height={20}
+                  className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-5 lg:h-5 xl:w-6 xl:h-6"
                   priority
-                  className="flex-shrink-0"
                 />
               </Link>
             </div>
@@ -81,47 +81,51 @@ const AlphaFooter = () => {
             <div className="flex flex-col space-y-6 w-full lg:w-[487px]">
               {/* Our Cities */}
               <div>
-                <h3 className="font-semibold mb-2 flex items-center leading-tight" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.875rem)', lineHeight: '1.2' }}>
-                  <span className="w-2 h-2 bg-lime-400 rounded-full mr-3 flex-shrink-0"></span>
+                <h3 className="font-semibold mb-2 flex items-center leading-tight text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl">
+                  <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 lg:w-3 lg:h-3 xl:w-3.5 xl:h-3.5 2xl:w-4 2xl:h-4 bg-lime-400 rounded-full mr-3 flex-shrink-0"></span>
                   Our Cities
                 </h3>
               </div>
 
               {/* Investments & Partnerships */}
               <div>
-                <h3 className="font-semibold mb-3 flex items-center leading-tight" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.875rem)', lineHeight: '1.2' }}>
-                  <span className="w-2 h-2 bg-lime-400 rounded-full mr-3 flex-shrink-0"></span>
+                <h3 className="font-semibold mb-3 flex items-center leading-tight text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl">
+                  <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 lg:w-3 lg:h-3 xl:w-3.5 xl:h-3.5 2xl:w-4 2xl:h-4 bg-lime-400 rounded-full mr-3 flex-shrink-0"></span>
                   Investments &amp; Partnerships
                 </h3>
-                <ul className="space-y-3 text-green-100 ml-5" style={{ fontSize: 'clamp(0.75rem, 1.2vw, 1.125rem)', lineHeight: '1.4' }}>
-                  <li>
+                <ul className="space-y-3 text-green-100 ml-8 text-xs sm:text-sm md:text-sm lg:text-base xl:text-base">
+                  <li className="flex items-start">
+                    <span className="text-lime-400 font-bold text-sm sm:text-sm md:text-base lg:text-base xl:text-lg mr-2 mt-0.5 flex-shrink-0">•</span>
                     <Link
                       href="#"
-                      className="hover:text-lime-400 transition-colors duration-200 block leading-normal"
+                      className="hover:text-lime-400 transition-colors duration-200 leading-normal flex-1"
                     >
                       Why Invest in Alpha Cities?
                     </Link>
                   </li>
-                  <li>
+                  <li className="flex items-start">
+                    <span className="text-lime-400 font-bold text-sm sm:text-sm md:text-base lg:text-base xl:text-lg mr-2 mt-0.5 flex-shrink-0">•</span>
                     <Link
                       href="#"
-                      className="hover:text-lime-400 transition-colors duration-200 block leading-normal"
+                      className="hover:text-lime-400 transition-colors duration-200 leading-normal flex-1"
                     >
                       Investment Models (Real Estate, Commercial, Infrastructure)
                     </Link>
                   </li>
-                  <li>
+                  <li className="flex items-start">
+                    <span className="text-lime-400 font-bold text-sm sm:text-sm md:text-base lg:text-base xl:text-lg mr-2 mt-0.5 flex-shrink-0">•</span>
                     <Link
                       href="#"
-                      className="hover:text-lime-400 transition-colors duration-200 block leading-normal"
+                      className="hover:text-lime-400 transition-colors duration-200 leading-normal flex-1"
                     >
                       Success Stories / Case Studies
                     </Link>
                   </li>
-                  <li>
+                  <li className="flex items-start">
+                    <span className="text-lime-400 font-bold text-sm sm:text-sm md:text-base lg:text-base xl:text-lg mr-2 mt-0.5 flex-shrink-0">•</span>
                     <Link
                       href="#"
-                      className="hover:text-lime-400 transition-colors duration-200 block leading-normal"
+                      className="hover:text-lime-400 transition-colors duration-200 leading-normal flex-1"
                     >
                       Contact for Investment Inquiries
                     </Link>
@@ -131,24 +135,24 @@ const AlphaFooter = () => {
 
               {/* Newsroom */}
               <div>
-                <h3 className="font-semibold mb-2 flex items-center leading-tight" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.875rem)', lineHeight: '1.2' }}>
-                  <span className="w-2 h-2 bg-lime-400 rounded-full mr-3 flex-shrink-0"></span>
+                <h3 className="font-semibold mb-2 flex items-center leading-tight text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl">
+                  <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 lg:w-3 lg:h-3 xl:w-3.5 xl:h-3.5 2xl:w-4 2xl:h-4 bg-lime-400 rounded-full mr-3 flex-shrink-0"></span>
                   Newsroom
                 </h3>
               </div>
 
               {/* Community */}
               <div>
-                <h3 className="font-semibold mb-2 flex items-center leading-tight" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.875rem)', lineHeight: '1.2' }}>
-                  <span className="w-2 h-2 bg-lime-400 rounded-full mr-3 flex-shrink-0"></span>
+                <h3 className="font-semibold mb-2 flex items-center leading-tight text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl">
+                  <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 lg:w-3 lg:h-3 xl:w-3.5 xl:h-3.5 2xl:w-4 2xl:h-4 bg-lime-400 rounded-full mr-3 flex-shrink-0"></span>
                   Community
                 </h3>
               </div>
 
               {/* Careers */}
               <div>
-                <h3 className="font-semibold mb-2 flex items-center leading-tight" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.875rem)', lineHeight: '1.2' }}>
-                  <span className="w-2 h-2 bg-lime-400 rounded-full mr-3 flex-shrink-0"></span>
+                <h3 className="font-semibold mb-2 flex items-center leading-tight text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl">
+                  <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 lg:w-3 lg:h-3 xl:w-3.5 xl:h-3.5 2xl:w-4 2xl:h-4 bg-lime-400 rounded-full mr-3 flex-shrink-0"></span>
                   Careers
                 </h3>
               </div>
