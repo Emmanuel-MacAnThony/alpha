@@ -227,11 +227,11 @@ const InformationSection = () => {
               Leadership Team
             </h2>
           </ScrollAnimationWrapper>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 xl:gap-6 2xl:gap-8 justify-items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 lg:gap-16 xl:gap-20 2xl:gap-24 justify-items-center">
             {/* Bradford */}
             <ScrollAnimationWrapper animation="scaleIn" delay={200}>
               <div className="text-center">
-                <div className="w-[260px] h-[325px] md:w-[280px] md:h-[350px] lg:w-[260px] lg:h-[325px] xl:w-[360px] xl:h-[450px] 2xl:w-[480px] 2xl:h-[600px] mb-4 rounded-2xl overflow-hidden bg-gray-200 relative">
+                <div className="w-[240px] h-[300px] md:w-[260px] md:h-[325px] lg:w-[280px] lg:h-[350px] xl:w-[320px] xl:h-[400px] 2xl:w-[400px] 2xl:h-[500px] mb-4 rounded-2xl overflow-hidden bg-gray-200 relative">
                   <Image
                     src={bradford}
                     alt="Bradford"
@@ -249,7 +249,7 @@ const InformationSection = () => {
             {/* Jacklina */}
             <ScrollAnimationWrapper animation="scaleIn" delay={400}>
               <div className="text-center">
-                <div className="w-[260px] h-[325px] md:w-[280px] md:h-[350px] lg:w-[260px] lg:h-[325px] xl:w-[360px] xl:h-[450px] 2xl:w-[480px] 2xl:h-[600px] mx-auto mb-4 rounded-2xl overflow-hidden bg-gray-300 relative">
+                <div className="w-[240px] h-[300px] md:w-[260px] md:h-[325px] lg:w-[280px] lg:h-[350px] xl:w-[320px] xl:h-[400px] 2xl:w-[400px] 2xl:h-[500px] mx-auto mb-4 rounded-2xl overflow-hidden bg-gray-300 relative">
                   <Image
                     src={fallBackImg}
                     alt="Jacklina"
@@ -267,7 +267,7 @@ const InformationSection = () => {
             {/* Pedro */}
             <ScrollAnimationWrapper animation="scaleIn" delay={600}>
               <div className="text-center">
-                <div className="w-[260px] h-[325px] md:w-[280px] md:h-[350px] lg:w-[260px] lg:h-[325px] xl:w-[360px] xl:h-[450px] 2xl:w-[480px] 2xl:h-[600px] mx-auto mb-4 rounded-2xl overflow-hidden bg-gray-300 relative">
+                <div className="w-[240px] h-[300px] md:w-[260px] md:h-[325px] lg:w-[280px] lg:h-[350px] xl:w-[320px] xl:h-[400px] 2xl:w-[400px] 2xl:h-[500px] mx-auto mb-4 rounded-2xl overflow-hidden bg-gray-300 relative">
                   <Image
                     src={fallBackImg}
                     alt="Pedro"
@@ -293,10 +293,10 @@ const InformationSection = () => {
               Project Updates
             </h2>
           </ScrollAnimationWrapper>
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 xl:gap-24 2xl:gap-32 items-start lg:justify-start">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-8 xl:gap-24 2xl:gap-32 items-start lg:justify-start">
             {/* Image */}
-            <ScrollAnimationWrapper animation="fadeInLeft" delay={200}>
-              <div className="lg:w-[515px] xl:w-[600px] 2xl:w-[700px] w-full flex-shrink-0">
+            <ScrollAnimationWrapper animation="fadeInLeft" delay={200} className="flex-shrink-0">
+              <div className="w-full lg:w-[480px] xl:w-[600px] 2xl:w-[700px]">
                 <div className="w-full h-[400px] lg:h-[531px] xl:h-[620px] 2xl:h-[720px] rounded-2xl overflow-hidden">
                   <Image
                     src={umbrella}
@@ -310,9 +310,9 @@ const InformationSection = () => {
             </ScrollAnimationWrapper>
 
             {/* Content */}
-            <ScrollAnimationWrapper animation="fadeInRight" delay={400}>
-              <div className="lg:w-[500px] xl:w-[600px] 2xl:w-[700px] w-full text-white flex-1">
-                <p className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl leading-relaxed mb-4 sm:mb-5 md:mb-6" style={{ fontSize: 'clamp(1rem, 1.6vw, 2rem)' }}>
+            <ScrollAnimationWrapper animation="fadeInRight" delay={400} className="flex-1">
+              <div className="w-full max-w-[400px] md:max-w-[450px] lg:max-w-[500px] xl:max-w-[550px] 2xl:max-w-[600px] text-white">
+                <p className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl leading-relaxed lg:leading-loose xl:leading-loose mb-8 lg:mb-12 xl:mb-16 2xl:mb-20" style={{ fontSize: 'clamp(1rem, 1.3vw, 1.8rem)', lineHeight: 'clamp(1.5, 2vw, 2.2)' }}>
                   Alpha solves what legacy governments cannot. It designs
                   ultra-modern, truly self-sufficient metropolises with
                   high-performance governance, industry-driven economic
@@ -326,7 +326,7 @@ const InformationSection = () => {
                 </p>
 
                 <Link href="/about" className="flex items-center">
-                  <span className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl font-medium underline cursor-pointer" style={{ fontSize: 'clamp(1rem, 1.6vw, 2rem)' }}>
+                  <span className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl 2xl:text-3xl font-medium underline cursor-pointer" style={{ fontSize: 'clamp(1rem, 1.3vw, 1.8rem)' }}>
                     Read More
                   </span>
                   <ArrowRight className="text-white w-4 h-4 sm:w-4 sm:h-4 md:w-4 md:h-4 lg:w-5 lg:h-5 xl:w-6 xl:h-6 2xl:w-7 2xl:h-7 cursor-pointer" />
