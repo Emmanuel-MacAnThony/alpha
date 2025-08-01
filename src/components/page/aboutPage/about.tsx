@@ -12,7 +12,7 @@ import { ScrollAnimationWrapper } from "@/lib/useScrollAnimation";
 
 const CompanyHistory = () => {
   return (
-    <div className="relative min-h-screen bg-[#FFF6F3]">
+    <div className="relative bg-[#FFF6F3]">
       {/* Background Image with Blur */}
       <div className="absolute inset-0 overflow-hidden">
         <Image
@@ -24,7 +24,7 @@ const CompanyHistory = () => {
         />
       </div>
 
-      <div className="relative z-10  py-4 sm:py-5 md:py-6 lg:py-8 xl:py-10 px-5 sm:px-7 md:px-9 lg:px-3 xl:px-4">
+      <div className="relative z-10 py-8 sm:py-10 md:py-12 lg:py-16 xl:py-20">
         <ScrollAnimationWrapper animation="fadeInDown">
           <h1 className="pt-4 sm:pt-5 md:pt-6 lg:pt-8 px-4 sm:px-6 md:px-8 lg:px-12 xl:pl-24 2xl:pl-40 xl:pr-12 2xl:pr-16 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#141B34] mb-4 sm:mb-6 md:mb-8">
             Company History
@@ -32,9 +32,9 @@ const CompanyHistory = () => {
         </ScrollAnimationWrapper>
 
         {/* Content */}
-        <div className="space-y-6 sm:space-y-7 md:space-y-8 lg:space-y-10 xl:space-y-12 text-left px-6 sm:px-9 md:px-12 lg:px-18 xl:pl-36 2xl:pl-60 xl:pr-18 2xl:pr-24">
+        <div className="space-y-6 sm:space-y-7 md:space-y-8 lg:space-y-8 xl:space-y-8 text-left px-6 sm:px-9 md:px-12 lg:px-18 xl:pl-36 2xl:pl-60 xl:pr-18 2xl:pr-24">
           <ScrollAnimationWrapper animation="fadeInUp" delay={200}>
-            <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl leading-relaxed">
+            <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl leading-relaxed">
               Alpha City was founded by Bradford Cross, an entrepreneur and
               investor who spent over 20 years building and backing AI startups
               and leading deep tech and finance innovation. As a multi-time exited
@@ -55,7 +55,7 @@ const CompanyHistory = () => {
           </ScrollAnimationWrapper>
 
           <ScrollAnimationWrapper animation="fadeInUp" delay={400}>
-            <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl leading-relaxed">
+            <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl leading-relaxed">
               This realization drove Bradford to pivot from AI to governance,
               applying his background in regulatory innovation, finance, and
               technology to create a better model for cities, economic
@@ -66,7 +66,7 @@ const CompanyHistory = () => {
           </ScrollAnimationWrapper>
 
           <ScrollAnimationWrapper animation="fadeInUp" delay={600}>
-            <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl leading-relaxed">
+            <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl leading-relaxed">
               Alpha solves what legacy governments cannot: It designs
               ultra-modern, self-sufficient metropolises with high-performance
               governance, industry-driven economic development, and
@@ -79,7 +79,7 @@ const CompanyHistory = () => {
             </p>
           </ScrollAnimationWrapper>
 
-          <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl leading-relaxed">
+          <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl leading-relaxed">
             Traditional cities are failing ambitious builders. Once-thriving
             talent hubs have become hostile to the very people driving human
             progress—choking growth with crushing regulation, stagnating
@@ -89,7 +89,7 @@ const CompanyHistory = () => {
             systems.
           </p>
 
-          <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl leading-relaxed">
+          <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl leading-relaxed">
             Bradford’s entry into startup cities was accelerated by Pronomos
             Capital, where he partnered with Patri Friedman, grandson of Milton
             Friedman, the legendary free-market economist. Pronomos had already
@@ -102,7 +102,7 @@ const CompanyHistory = () => {
             private-sector-driven development.
           </p>
 
-          <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl leading-relaxed">
+          <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl leading-relaxed">
             Unlike most development projects that take years or even decades to
             gain traction, Alpha moved at the speed of a tech startup. Within 12
             months of incorporation, Alpha secured agreements with three
@@ -112,7 +112,7 @@ const CompanyHistory = () => {
             Special Development Zone legal frameworks.
           </p>
 
-          <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl leading-relaxed">
+          <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl leading-relaxed">
             Today, Alpha is securing land in increments larger than 1,000
             hectares, developing beachfront hospitality and entertainment,
             central business districts, agricultural hubs, and industrial
@@ -123,7 +123,7 @@ const CompanyHistory = () => {
             governance and economic development — Alpha is building it.
           </p>
 
-          {/* <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl leading-relaxed">
+          {/* <p className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl leading-relaxed">
             What began as an idea to start a global movement, shaping the future
             of civilization into city at a time. The world needs a new model for
             governance and economic development — Alpha is building that model.
@@ -331,7 +331,7 @@ const About = () => {
                       {member.description.map((paragraph, index) => (
                         <li
                           key={index}
-                          className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl leading-relaxed flex items-start"
+                          className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl leading-relaxed flex items-start"
                         >
                           <span className="text-green-800 font-bold text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl mr-3 mt-1 flex-shrink-0">•</span>
                           <span className="flex-1">{paragraph}</span>
@@ -473,7 +473,7 @@ const About = () => {
                                 {paragraph}
                               </a>
                             ) : (
-                              <span className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl leading-relaxed">
+                              <span className="text-[#000000] text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl leading-relaxed">
                                 {paragraph}
                               </span>
                             )}
