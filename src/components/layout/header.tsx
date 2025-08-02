@@ -9,6 +9,7 @@ function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [isClient, setIsClient] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -70,6 +71,9 @@ function Header() {
     if (!isClient) return;
 
     const handleScroll = () => {
+      // Update scroll state for header background
+      setIsScrolled(window.scrollY > 50);
+      
       const sections = ['community', 'contact'];
       const scrollPosition = window.scrollY + 100; // Offset for header height
       
@@ -171,7 +175,11 @@ function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 py-4 bg-black/20 backdrop-blur-md border-b border-white/10 z-50">
+      <header className={`fixed top-0 left-0 right-0 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 py-4 z-50 transition-all duration-500 ${
+        isScrolled 
+          ? 'bg-black/20 backdrop-blur-md' 
+          : 'bg-transparent'
+      }`}>
         <nav className="flex items-center justify-between w-full">
           <div className="flex-shrink-0">
             <Image
