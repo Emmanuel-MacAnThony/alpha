@@ -9,7 +9,7 @@ import { useEffect, useState, useRef, useCallback } from "react";
 const Hero = ({ currentSlide = 0, onSlideChange }: any) => {
   const heroImages = [
     "/home1.png",
-    "/home2.png",
+    "/home2.PNG",
     "/home3.png",
   ];
 
