@@ -132,6 +132,26 @@ const CompanyHistory = () => {
   );
 };
 
+// Dot Pagination component for About page
+const AboutDotPagination = ({ currentSlide, totalSlides, onSlideChange }: any) => {
+  return (
+    <div className="flex items-center justify-center space-x-2 sm:space-x-3">
+      {Array.from({ length: totalSlides }, (_, index) => (
+        <button
+          key={index}
+          onClick={() => onSlideChange(index)}
+          className={`transition-all duration-500 cursor-pointer hover:bg-white/80 ${
+            index === currentSlide
+              ? 'w-6 h-2 sm:w-7 sm:h-2 md:w-8 md:h-2.5 lg:w-9 lg:h-2.5 xl:w-10 xl:h-3 bg-white rounded-full'
+              : 'w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 lg:w-3.5 lg:h-3.5 xl:w-4 xl:h-4 bg-white/50 hover:bg-white/70 rounded-full'
+          }`}
+          aria-label={`Go to slide ${index + 1}`}
+        />
+      ))}
+    </div>
+  );
+};
+
 // Main Hero Component with Slider
 const Hero = ({ currentSlide = 0, onSlideChange }: any) => {
   const heroImages = [
@@ -139,6 +159,7 @@ const Hero = ({ currentSlide = 0, onSlideChange }: any) => {
     "/about3.jpg",
     "/about4.jpg",
   ];
+
 
   // Track loading states and transition states
   const [imageStates, setImageStates] = useState<{[key: number]: 'loading' | 'loaded' | 'error'}>({});
@@ -272,20 +293,14 @@ const Hero = ({ currentSlide = 0, onSlideChange }: any) => {
         })}
       </div>
 
-      {/* Centered Alpha Logo */}
-      {/* <div className="absolute inset-0 flex items-center justify-center z-30">
-        <div className="text-center px-4">
-          <div className="mb-4">
-            <Image
-              src={Vector}
-              alt="Alpha Logo"
-              width={573}
-              height={200}
-              className="mx-auto max-w-full h-auto"
-            />
-          </div>
-        </div>
-      </div> */}
+      {/* Controls positioned at bottom */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30">
+        <AboutDotPagination
+          currentSlide={currentSlide}
+          totalSlides={heroImages.length}
+          onSlideChange={onSlideChange}
+        />
+      </div>
     </div>
   );
 };
