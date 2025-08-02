@@ -11,12 +11,6 @@ const Hero = ({ currentSlide = 0, onSlideChange }: any) => {
     "/home1.png",
     "/home2.png",
     "/home3.png",
-    // "/hero_1.avif",
-    // "/legacy_2.avif", 
-    // "/hero_3.avif",
-    // "/IMG_2940.png",
-    // "/Baia_19.png",
-    // "/Baia_17.png"
   ];
 
   // Track loading states and transition states
@@ -134,7 +128,7 @@ const Hero = ({ currentSlide = 0, onSlideChange }: any) => {
   }, [currentSlide]);
 
   return (
-    <div className="relative -mt-25 pt-25 w-full min-h-screen max-h-screen xl:max-h-[80vh] 2xl:max-h-[75vh] flex items-center justify-center z-10">
+    <div className="relative w-full min-h-screen max-h-screen xl:max-h-[80vh] 2xl:max-h-[75vh] flex items-center justify-center z-10">
       <div className="absolute inset-0 overflow-hidden">
         {/* Current image layer */}
         <div 

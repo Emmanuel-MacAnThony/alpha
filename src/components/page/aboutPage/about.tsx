@@ -137,7 +137,7 @@ const CompanyHistory = () => {
 // Main Hero Component
 const Hero = () => {
   return (
-    <div className="relative -mt-25 pt-25 w-full min-h-screen max-h-4xl flex flex-col justify-end">
+    <div className="relative w-full min-h-screen max-h-4xl flex flex-col justify-end">
       {/* Fixed Background Image */}
       <div className="absolute inset-0">
         <Image 

@@ -171,7 +171,7 @@ function Header() {
 
   return (
     <>
-      <header className="top-0 left-0 right-0 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 py-6 bg-transparent z-50">
+      <header className="fixed top-0 left-0 right-0 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 py-4 bg-transparent z-50">
         <nav className="flex items-center justify-between w-full">
           <div className="flex-shrink-0">
             <Image
