@@ -1,9 +1,7 @@
 "use client";
 
-import React from "react";
-import swampHero from "../../../../public/swampHero.png";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import leadBackground from "../../../../public/leadBackground.png";
-import Vector from "../../../../public/Vector.png";
 import bradford from "../../../../public/bradford.png";
 import fallbackImg from "../../../../public/fallbackImg.jpg";
 import blur from "../../../../public/blur.png";
@@ -134,31 +132,149 @@ const CompanyHistory = () => {
   );
 };
 
-// Main Hero Component
-const Hero = () => {
+// Main Hero Component with Slider
+const Hero = ({ currentSlide = 0, onSlideChange }: any) => {
+  const heroImages = [
+    "/about1.png",
+    "/about3.jpg",
+    "/about4.jpg",
+  ];
+
+  // Track loading states and transition states
+  const [imageStates, setImageStates] = useState<{[key: number]: 'loading' | 'loaded' | 'error'}>({});
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [previousSlide, setPreviousSlide] = useState<number | null>(null);
+  const preloadRefs = useRef<{[key: number]: HTMLImageElement}>({});
+  const preloadedSet = useRef<Set<number>>(new Set());
+  const transitionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Preload image function
+  const preloadImage = useCallback((index: number): Promise<void> => {
+    return new Promise((resolve, reject) => {
+      if (preloadedSet.current.has(index)) {
+        resolve();
+        return;
+      }
+
+      const img = new window.Image();
+      preloadRefs.current[index] = img;
+      
+      img.onload = () => {
+        preloadedSet.current.add(index);
+        setImageStates(prev => ({ ...prev, [index]: 'loaded' }));
+        resolve();
+      };
+      
+      img.onerror = () => {
+        setImageStates(prev => ({ ...prev, [index]: 'error' }));
+        reject(new Error(`Failed to load image ${index}`));
+      };
+      
+      setImageStates(prev => ({ ...prev, [index]: 'loading' }));
+      img.src = heroImages[index];
+    });
+  }, [heroImages]);
+
+  // Initialize and preload current image immediately
+  useEffect(() => {
+    preloadImage(currentSlide).catch(err => 
+      console.warn(`Failed to preload current image ${currentSlide}:`, err)
+    );
+
+    // Preload adjacent images after a short delay
+    const timeoutId = setTimeout(() => {
+      heroImages.forEach((_, index) => {
+        if (!preloadedSet.current.has(index)) {
+          preloadImage(index).catch(err => 
+            console.warn(`Failed to preload image ${index}:`, err)
+          );
+        }
+      });
+    }, 1000);
+
+    return () => clearTimeout(timeoutId);
+  }, [currentSlide, preloadImage]);
+
+  // Handle transition state when slide changes
+  useEffect(() => {
+    if (previousSlide !== null && previousSlide !== currentSlide) {
+      setIsTransitioning(true);
+      
+      // Clear any existing timeout
+      if (transitionTimeoutRef.current) {
+        clearTimeout(transitionTimeoutRef.current);
+      }
+      
+      // Reset transition state after animation completes
+      transitionTimeoutRef.current = setTimeout(() => {
+        setIsTransitioning(false);
+      }, 1000); // Match CSS transition duration
+    }
+    
+    setPreviousSlide(currentSlide);
+    
+    return () => {
+      if (transitionTimeoutRef.current) {
+        clearTimeout(transitionTimeoutRef.current);
+      }
+    };
+  }, [currentSlide, previousSlide]);
+
+  // Determine which images should be rendered (current + adjacent for smooth transitions)
+  const shouldRenderImage = useCallback((index: number) => {
+    const prevSlide = currentSlide === 0 ? heroImages.length - 1 : currentSlide - 1;
+    const nextSlide = (currentSlide + 1) % heroImages.length;
+    return index === currentSlide || index === nextSlide || index === prevSlide;
+  }, [currentSlide]);
+
   return (
-    <div className="relative w-full min-h-screen max-h-4xl flex flex-col justify-end">
-      {/* Fixed Background Image */}
-      <div className="absolute inset-0">
-        <Image 
-          src={swampHero} 
-          alt="" 
-          fill 
-          className="object-cover" 
-          priority 
-          quality={90}
-          loading="eager"
-          unoptimized={true}
-        />
+    <div className="relative w-full min-h-screen max-h-screen xl:max-h-[80vh] 2xl:max-h-[75vh] flex items-center justify-center z-10">
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Current image layer */}
+        <div 
+          className="absolute inset-0 z-20"
+          style={{
+            transform: 'translateZ(0)',
+            backfaceVisibility: 'hidden',
+          }}
+        >
+          <Image
+            src={heroImages[currentSlide]}
+            alt={`Hero image ${currentSlide + 1}`}
+            fill
+            className="object-cover"
+            priority={true}
+            quality={90}
+            sizes="100vw"
+            loading="eager"
+            unoptimized={true}
+          />
+        </div>
+        
+        {/* Preload adjacent images (hidden) */}
+        {heroImages.map((src, index) => {
+          if (!shouldRenderImage(index) || index === currentSlide) return null;
+          
+          return (
+            <div key={`preload-${index}`} className="absolute inset-0 z-10 opacity-0 pointer-events-none">
+              <Image
+                src={src}
+                alt={`Preload image ${index + 1}`}
+                fill
+                className="object-cover"
+                quality={90}
+                sizes="100vw"
+                loading="lazy"
+                unoptimized={true}
+              />
+            </div>
+          );
+        })}
       </div>
 
-      {/* Opacity Overlay */}
-      <div className="absolute inset-0 bg-opacity-50"></div>
-
       {/* Centered Alpha Logo */}
-      <div className="absolute inset-0 flex items-center justify-center z-10">
+      {/* <div className="absolute inset-0 flex items-center justify-center z-30">
         <div className="text-center px-4">
-          {/* Logo placeholder */}
           <div className="mb-4">
             <Image
               src={Vector}
@@ -169,12 +285,24 @@ const Hero = () => {
             />
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
 
 const About = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const heroImages = ["/about1.png", "/about3.jpg", "/about4.jpg"];
+
+  // Auto-advance slides
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
+
   const teamInvestors = [
     // {
     //   id: 1,
@@ -260,7 +388,7 @@ const About = () => {
 
   return (
     <div>
-      <Hero />
+      <Hero currentSlide={currentSlide} onSlideChange={setCurrentSlide} />
 
       {/* Decorative strips */}
       <div className="hidden md:block relative w-full h-30 overflow-hidden -mt-5">

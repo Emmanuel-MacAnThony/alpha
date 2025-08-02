@@ -171,7 +171,7 @@ function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 py-4 bg-transparent z-50">
+      <header className="fixed top-0 left-0 right-0 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 py-4 bg-black/20 backdrop-blur-md border-b border-white/10 z-50">
         <nav className="flex items-center justify-between w-full">
           <div className="flex-shrink-0">
             <Image
@@ -195,8 +195,8 @@ function Header() {
                   onClick={(e) => handleSmoothScroll(e, link.href, link.isPage)}
                   className={`relative font-medium transition-all duration-500 ease-out px-3 py-2 md:px-4 md:py-3 lg:px-5 lg:py-3 xl:px-6 xl:py-3 rounded-xl group focus:outline-none whitespace-nowrap ${
                     isActive 
-                      ? 'text-white shadow-lg transform scale-105' 
-                      : 'text-white/90 hover:text-white focus:text-white'
+                      ? 'text-white bg-white/20 shadow-lg transform scale-105 ring-2 ring-white/30' 
+                      : 'text-white/90 hover:text-white hover:bg-white/10 focus:text-white'
                   }`}
                   style={{ fontSize: 'clamp(14px, 1.5vw, 16px)' }}
                 >

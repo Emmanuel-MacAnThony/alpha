@@ -47,7 +47,7 @@ const ContentSlider = ({ onSlideChange }: any) => {
     },
     {
       title: "Build Your Legacy",
-      description: "Alpha builds ultra-modern, self-sufficient metropolises that offer compelling alternatives to traditional governance models, fostering local economic development fueled by global investment and migration. We envision a future where cities are designed with precision—integrating private sector efficiency, innovative tech-driven governance, strategic urban planning, and investor-friendly policies to create thriving, secure, engines of wealth creation for everyone. By creating dynamic economic hubs tailored to each region's strengths, Alpha empowers communities to thrive in a rapidly evolving world.",
+      description: "Alpha builds ultra-modern, self-sufficient metropolises with innovative governance and investor-friendly policies. We create dynamic economic hubs that integrate private sector efficiency with strategic urban planning—engines of wealth creation designed to empower communities and foster prosperity in a rapidly evolving world.",
       cta: "Start building",
     },
     {
@@ -105,12 +105,12 @@ const ContentSlider = ({ onSlideChange }: any) => {
   if (!isClient) {
     return (
       <div className="flex flex-row items-end h-full max-w-svw px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 transition-all duration-800">
-        <div className="flex flex-1 flex-col sm:flex-row justify-between sm:items-center items-start gap-6 sm:gap-8 md:gap-10 py-6 sm:py-8 md:py-10 lg:py-10 xl:py-8 2xl:py-6">
+        <div className="flex flex-1 flex-col sm:flex-row justify-between sm:items-center items-start gap-3 sm:gap-6 md:gap-8 pt-28 sm:pt-24 md:pt-28 lg:pt-32 pb-4 sm:pb-8 md:pb-10 lg:pb-12">
           <div className="flex-1 max-w-none sm:max-w-2xl lg:max-w-3xl xl:max-w-4xl">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-bold text-white mb-4 sm:mb-5 md:mb-6 lg:mb-8 leading-[0.85] sm:leading-[0.9] tracking-tight" style={{ fontSize: 'clamp(1.5rem, 4.5vw, 6rem)' }}>
+            <h1 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-5xl font-bold text-white mb-2 sm:mb-4 md:mb-5 lg:mb-6 leading-[0.9] sm:leading-[0.95] tracking-tight" style={{ fontSize: 'clamp(1.1rem, 3.5vw, 3.5rem)' }}>
               {slides[0].title}
             </h1>
-            <p className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl font-medium leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-loose mb-6 sm:mb-7 md:mb-8 lg:mb-10" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.75rem)' }}>
+            <p className="text-white/90 text-xs sm:text-base md:text-base lg:text-lg xl:text-lg font-medium leading-relaxed mb-3 sm:mb-5 md:mb-6 lg:mb-8" style={{ fontSize: 'clamp(0.75rem, 1.2vw, 1.25rem)' }}>
               {slides[0].description}
             </p>
           </div>
@@ -127,10 +127,10 @@ const ContentSlider = ({ onSlideChange }: any) => {
 
   return (
     <div className="flex flex-row items-end h-full max-w-svw px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 transition-all duration-800">
-      <div className="flex flex-1 flex-col sm:flex-row justify-between sm:items-center items-start gap-6 sm:gap-8 md:gap-10 py-6 sm:py-8 md:py-10 lg:py-10 xl:py-8 2xl:py-6">
+      <div className="flex flex-1 flex-col sm:flex-row justify-between sm:items-center items-start gap-4 sm:gap-6 md:gap-8 pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-6 sm:pb-8 md:pb-10 lg:pb-12">
         {/* Content that changes */}
         <div className="flex-1 max-w-none sm:max-w-2xl lg:max-w-3xl xl:max-w-4xl">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-bold text-white mb-4 sm:mb-5 md:mb-6 lg:mb-8 leading-[0.85] sm:leading-[0.9] tracking-tight" style={{ fontSize: 'clamp(1.5rem, 4.5vw, 6rem)' }}>
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-5xl font-bold text-white mb-3 sm:mb-4 md:mb-5 lg:mb-6 leading-[0.9] sm:leading-[0.95] tracking-tight" style={{ fontSize: 'clamp(1.25rem, 3.5vw, 3.5rem)' }}>
             {slides[currentSlide].title}
           </h1>
           <p className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl font-medium leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-loose mb-6 sm:mb-7 md:mb-8 lg:mb-10" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.75rem)' }}>
