@@ -13,6 +13,9 @@ const Hero = ({ currentSlide = 0, onSlideChange }: any) => {
     "/home3.png",
   ];
 
+  // Tiny blur placeholder - shows instantly while real image loads
+  const blurDataURL = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAVGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q==";
+
   // Track loading states and transition states
   const [imageStates, setImageStates] = useState<{[key: number]: 'loading' | 'loaded' | 'error'}>({});
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -142,12 +145,14 @@ const Hero = ({ currentSlide = 0, onSlideChange }: any) => {
             src={heroImages[currentSlide]}
             alt={`Hero image ${currentSlide + 1}`}
             fill
-            className="object-cover"
+            className="object-cover transition-opacity duration-700 ease-out"
             priority={true}
             quality={90}
             sizes="100vw"
             loading="eager"
-            unoptimized={true}
+            placeholder="blur"
+            blurDataURL={blurDataURL}
+            unoptimized={false}
           />
         </div>
         
